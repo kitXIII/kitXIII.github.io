@@ -1,0 +1,13 @@
+body {
+    background-color: #f8f8f8;
+}
+.menu {
+    list-style-type: none;
+}
+.menu li a {
+    color: #38e;
+    text-decoration: none;
+    border-bottom: 1px dashed #38e;
+    font-style: oblique;
+    font-size:large;
+}
