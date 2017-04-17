@@ -1,18 +1,29 @@
 body {
     background-color: #f8f8f8;
    }
+sup {
+	font-size: 0.6em;
+}
 .no-marker li {
     list-style-type: none;
 }
 .no-marker{
     padding-left: 0;
 }
+.logo-name{
+	color: #154861;
+	font-size:1.7em;
+}
 .menu li a {
-    color: #3f5a7b;
+    color: #154861;
     text-decoration: none;
-    border-bottom: 1px dashed #3f5a7b;
+    border-bottom: 1px dashed #154861;
     font-style: oblique;
     font-size:large;
+}
+.menu li a:hover{
+	color:#30a9e4;
+	border-bottom-color: #30a9e4;
 }
 .heading {
     color: black;
@@ -26,7 +37,7 @@ body {
     font-style: italic;
     line-height: 16px;
 }
-.full-descriptin {
+.full-descriptin, .characteristics {
     color:#484343;
     font-size: 16px;
     font-weight: 400;
@@ -35,12 +46,9 @@ body {
 }
 
 .characteristics  li{
-    color: #523a3a;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20px;
-    list-style-image: url(img/tools.png);
+    list-style-image: url(img/marker.png);
     }
+
 .image-border{
     outline: 2px solid #523a3a;
 }
@@ -68,8 +76,7 @@ form label{
     text-decoration: none;
 }
 .catalog-list li a span{
-    color: #3f5a7b;
-    border-bottom: 1px dashed #3f5a7b;
+    color:  #154861;
     font-style: oblique;
     font-size:14px;
 }
