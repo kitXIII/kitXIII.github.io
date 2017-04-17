@@ -1,8 +1,9 @@
 body {
     background-color: #f8f8f8;
    }
-.no-marker {
+.no-marker li {
     list-style-type: none;
+    padding-left: 0;
 }
 .menu li a {
     color: #3f5a7b;
@@ -30,17 +31,16 @@ body {
     line-height: 24px;
     text-align: left;
 }
-.characteristics {
-    list-style-image: url(img/tools.png);
-    }
+
 .characteristics  li{
     color: #523a3a;
     font-size: 14px;
     font-weight: 500;
-    line-height: 18px;
+    line-height: 20px;
+    list-style-image: url(img/tools.png);
     }
 .image-border{
-    border: 2px solid #523a3a;
+    outline: 2px solid #523a3a;
 }
 #name, #mail {
     width: 200px;
