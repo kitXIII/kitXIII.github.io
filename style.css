@@ -3,6 +3,8 @@ body {
    }
 .no-marker li {
     list-style-type: none;
+}
+.no-marker{
     padding-left: 0;
 }
 .menu li a {
@@ -51,7 +53,7 @@ body {
 #theme, #name, #mail {
     height: 20px
 }
-#name, #mail, #theme, #message {
+input[type="text"], #message {
     color: #523a3a;
     font-style: italic;
     font-size: 14px;
