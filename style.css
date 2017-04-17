@@ -1,13 +1,13 @@
 body {
     background-color: #f8f8f8;
    }
-.menu {
+.no-marker {
     list-style-type: none;
 }
 .menu li a {
-    color: #38e;
+    color: #3f5a7b;
     text-decoration: none;
-    border-bottom: 1px dashed #38e;
+    border-bottom: 1px dashed #3f5a7b;
     font-style: oblique;
     font-size:large;
 }
@@ -34,10 +34,40 @@ body {
     list-style-image: url(img/tools.png);
     }
 .characteristics  li{
-    color: #38e;
+    color: #523a3a;
     font-size: 14px;
     font-weight: 500;
     line-height: 18px;
     }
 .image-border{
-    border: 2px solid #38e;
+    border: 2px solid #523a3a;
+}
+#name, #mail {
+    width: 200px;
+}
+#theme, #message {
+    width: 400px;
+}
+#theme, #name, #mail {
+    height: 20px
+}
+#name, #mail, #theme, #message {
+    color: #523a3a;
+    font-style: italic;
+    font-size: 14px;
+    font-weight: 400;
+}
+form label{
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+}
+.catalog-list li a{
+    text-decoration: none;
+}
+.catalog-list li a span{
+    color: #3f5a7b;
+    border-bottom: 1px dashed #3f5a7b;
+    font-style: oblique;
+    font-size:14px;
+}
