@@ -1,15 +1,11 @@
 body {
     background-color: #f8f8f8;
    }
-sup {
-	font-size: 0.6em;
-}
 .logo{
 	width: 80px;
 	height: 80px;
 	background-image: url("img/logo.png");
 	background-repeat: no-repeat;
-	background-position: 50% 50%;
 	background-size: cover;	
 }
 .menu li a {
@@ -23,9 +19,9 @@ sup {
 	color:#30a9e4;
 	border-bottom-color: #30a9e4;
 }
-.no-marker li{
+.menu li{
 	list-style-type: none;
-	padding-left: 10px;
+	margin-left: 5px;
 }
 .heading {
     color: black;
@@ -52,7 +48,7 @@ sup {
     }
 
 .image-border{
-    outline: 2px solid #523a3a;
+    outline: 2px solid #484343;
 }
 #name, #mail {
     width: 200px;
@@ -63,18 +59,26 @@ sup {
 #theme, #name, #mail {
     height: 20px
 }
-input[type="text"], #message {
-    color: #523a3a;
+input[type="text"], #message, #mail {
+    color: #484343;
     font-style: italic;
     font-size: 14px;
     font-weight: 400;
+}
+input[type="text"], #message {
+	text-transform: capitalize;
 }
 form label{
     font-style: italic;
     font-weight: 400;
     font-size: 14px;
 }
-.catalog-list{
+#mail:focus{
+	color:#f8f8f8;
+	background-color: #484343;
+}
+.no-marker{
+	list-style-type: none;
 	padding-left: 0;
 }
 .catalog-list li a{
