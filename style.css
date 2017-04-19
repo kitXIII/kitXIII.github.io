@@ -50,6 +50,9 @@ body {
 .image-border{
     outline: 2px solid #484343;
 }
+.image-border:hover{
+	outline: 2px solid #f8f8f8;
+}
 #name, #mail {
     width: 200px;
 }
@@ -88,4 +91,21 @@ form label{
     color:  #154861;
     font-style: oblique;
     font-size:14px;
+}
+table{
+	border: 1px solid #154861;
+	border-collapse: collapse;
+	margin: 20px;
+}
+td {
+	border: 1px solid #154861;
+	color: #484343;
+	font-style:italic;
+	padding:5px;	
+}
+.product p:first-letter{
+	font-size: 1.3em;
+	font-weight: 600;
+	color:#154861;
+	
 }
