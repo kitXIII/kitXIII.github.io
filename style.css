@@ -116,3 +116,6 @@ caption{
 	font-weight: 600;
 	color:#154861;	
 }
+table.numbers tr:first-child{
+	height: 40px;
+}
