@@ -2,10 +2,7 @@
 	margin: 0;
 	padding: 0;
 }
-/*
-#3a91ad
-#442f26
-*/
+
 body {
 	background-color: #f8f8f8;
 }
@@ -17,8 +14,10 @@ body {
 
 .header {
 	height: 100px;
-	background-color: #3a91ad;
+	/*	background-color: #3a91ad;*/
 	border-bottom: 1px solid #484343;
+	background: url(/img/mountains.png) no-repeat;
+	background-size: cover;
 }
 
 .logo-block {
@@ -43,6 +42,7 @@ body {
 	height: 80px;
 	margin-left: 10px;
 	font-size: 50px;
+	font-family: Sans-serif;
 	line-height: 100px;
 	color: #f8f8f8;
 	float: left;
@@ -62,25 +62,27 @@ body {
 .menu-item {
 	width: 100px;
 	height: inherit;
-	/*	border: 1px dotted #000;*/
 }
 
 .menu-item a {
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
+	/*	color: #442f26;*/
 	color: #f8f8f8;
 	text-decoration: none;
-	font-style: oblique;
+	font-family: sans-serif;
+/*	font-style: oblique;*/
 	font-size: large;
+	font-weight: 600;
 	width: inherit;
 	height: inherit;
 }
 
 .menu-item a:hover {
 	background-color: #442f26;
+	color: #f8f8f8;
 }
-
 
 .content,
 .product {
@@ -115,11 +117,8 @@ ul {
 
 .product-image-href {
 	display: block;
-	width: 296px;
+	width: 296x;
 	height: 296px;
-	background-image: url("../../img/snowboard1.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
 	margin-left: 2px;
 }
 
@@ -143,6 +142,7 @@ ul {
 	font-weight: 400;
 	color: #f8f8f8;
 	border: 2px solid #442f26;
+	box-sizing: border-box;
 }
 
 .product-buy-button:hover {
@@ -179,6 +179,72 @@ ul {
 .characteristics li {
 	list-style-image: url(img/marker.png);
 	list-style-position: inside;
+}
+
+.catalog-list li {
+	width: 200px;
+	height: 240px;
+	float: left;
+	/*	border: 2px solid #442f26;*/
+	margin-right: 50px;
+	margin-bottom: 20px;
+}
+
+.catalog-list li:nth-child(5n) {
+	margin-right: 0;
+}
+
+.catalog-list li a {
+	text-decoration: none;
+	display: block;
+	width: inherit;
+	height: inherit;
+}
+
+.catalog-list li a img {
+	width: inherit;
+	display: block;
+	border: 2px solid #442f26;
+	box-sizing: border-box;
+}
+
+.catalog-list li a div {
+	display: inline;
+	/*	height: auto;*/
+	color: #154861;
+	font-style: oblique;
+	font-size: 14px;
+}
+
+table {
+	border: 1px solid #154861;
+	border-collapse: collapse;
+	margin: 20px;
+}
+
+td {
+	border: 1px solid #154861;
+	padding: 5px;
+	color: #484343;
+	font-style: italic;
+	text-align: center;
+}
+
+caption {
+	color: #484343;
+	font-style: italic;
+	font-weight: 600;
+	text-align: right;
+}
+
+.product p:first-letter {
+	font-size: 1.3em;
+	font-weight: 600;
+	color: #154861;
+}
+
+table.numbers tr:first-child {
+	height: 40px;
 }
 
 #name,
@@ -226,47 +292,6 @@ form label {
 	/*	padding-left: 0;*/
 }
 
-.catalog-list li a {
-	text-decoration: none;
-}
-
-.catalog-list li a span {
-	color: #154861;
-	font-style: oblique;
-	font-size: 14px;
-}
-
-table {
-	border: 1px solid #154861;
-	border-collapse: collapse;
-	margin: 20px;
-}
-
-td {
-	border: 1px solid #154861;
-	padding: 5px;
-	color: #484343;
-	font-style: italic;
-	text-align: center;
-}
-
-caption {
-	color: #484343;
-	font-style: italic;
-	font-weight: 600;
-	text-align: right;
-}
-
-.product p:first-letter {
-	font-size: 1.3em;
-	font-weight: 600;
-	color: #154861;
-}
-
-table.numbers tr:first-child {
-	height: 40px;
-}
-
 .footer {
 	height: 80px;
 	background-color: #442f26;
@@ -276,5 +301,5 @@ table.numbers tr:first-child {
 
 .all-rights-notify {
 	float: right;
-	color:#f8f8f8;
+	color: #f8f8f8;
 }
