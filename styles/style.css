@@ -1,3 +1,7 @@
+body {
+    background-color: #f8f8f8;
+}
+
 .container {
     width: 1500px;
     margin: 0 auto;
@@ -6,6 +10,10 @@
 .header {
     background-color: #abeafa;
     height: 700px;
+}
+
+.main {
+    margin: 0 165px;
 }
 
 .header .logo {
@@ -150,5 +158,87 @@
     font-size: 14px;
     font-weight: 800;
     line-height: 50px;
-    text-align:center;
-  }
+    text-align: center;
+}
+
+.main .sidebar {
+    float: left;
+}
+
+.main .menu {
+    background-color: #26d2fc;
+    font-family: Roboto;
+    margin-top: -20px;
+}
+
+.main .menu li {
+    list-style-type: none;
+    width: 270px;
+    height: 43px;
+}
+
+.main .menu a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 43px;
+    text-align: left;
+    text-transform: uppercase;
+    display: block;
+    padding-left: 40px;
+}
+
+.main .menu li:first-child {
+    width: 228px;
+    height: 66px;
+    background-color: #333333;
+    color: #ffffff;
+    line-height: 66px;
+    padding-left: 42px;
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.main .menu li a:hover {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.banner1 {
+    background-color: #e0e0e0;
+    width: 110px;
+    height: 171px;
+    margin: 30px 0;
+    padding: 129px 19px 0 141px;
+}
+
+.banner1 h3 {
+    font-family: raleway, sans-serif;
+    font-style: normal;
+    color: #333333;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 36px;
+    text-align: left;
+}
+
+.main .products {
+    margin-top: -20px;
+    width: 870px;
+    float: right;
+    background-color: #f8f8f8;
+   }
+
+.main .products h3 {
+    margin: 31px 25px 0;
+    font-family: roboto, sans-serif;
+    color: #707070;
+    font-size: 22px;
+    font-weight: 900;
+    font-style: italic;
+    text-align: left;
+    line-height: 22px;
+    text-transform: uppercase;
+}
