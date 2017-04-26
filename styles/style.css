@@ -147,6 +147,8 @@ body {
 }
 
 .slide-buy-button {
+    display: block;
+    text-decoration: none;
     background-color: #fff51f;
     width: 124px;
     height: 49px;
@@ -154,30 +156,39 @@ body {
     margin-left: 3px;
     text-transform: uppercase;
     font-family: raleway, sans-serif;
-    color: #000000;
+    color: #000;
     font-size: 14px;
     font-weight: 800;
     line-height: 50px;
     text-align: center;
 }
 
+.slide-buy-button:hover {
+    background-color: #d6cd0a;
+}
+
+.slide-buy-button:active {
+    outline: 2px solid #000;
+}
+
 .main .sidebar {
     float: left;
 }
 
-.main .menu {
+.menu {
     background-color: #26d2fc;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     margin-top: -20px;
 }
 
-.main .menu li {
+.menu>li {
     list-style-type: none;
     width: 270px;
     height: 43px;
+    position: relative;
 }
 
-.main .menu a {
+.menu>li>a {
     text-decoration: none;
     color: #333333;
     font-size: 14px;
@@ -189,7 +200,7 @@ body {
     padding-left: 40px;
 }
 
-.main .menu li:first-child {
+.menu>li:first-child {
     width: 228px;
     height: 66px;
     background-color: #333333;
@@ -201,17 +212,78 @@ body {
     text-transform: uppercase;
 }
 
-.main .menu li a:hover {
+.menu>li:hover>a {
     background-color: #333333;
     color: #ffffff;
 }
 
+.menu .second-level {
+    width: 155px;
+    background-color: #75e3fe;
+    padding: 1px 0 1px 0;
+    position: absolute;
+    left: 270px;
+    top: 0;
+    display: none;
+}
+.menu>li:hover>ul{
+        display: block;
+}
+.second-level li {
+    list-style-type: square;
+    margin-left: 28px;
+    height: 40px;
+    color: #333;
+}
+
+.second-level li a {
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 36px;
+    text-align: left;
+    text-transform: uppercase;
+    display: block;
+    position: relative;
+}
+
+.second-level li a:after {
+    content: "";
+    display: none;
+    background-image: url(/img/second-level-menu-indic.png);
+    background-repeat: no-repeat;
+    width: 11px;
+    height: 14px;
+    position: absolute;
+    top: 10px;
+    left: 103px;
+    z-index: 10;
+}
+
+.second-level li:hover a:after {
+    display: block;
+}
+
+/*
+.second-level .thrid-level{
+    
+}
+
 .banner1 {
+*/
+    display: block;
+    text-decoration: none;
     background-color: #e0e0e0;
     width: 110px;
     height: 171px;
     margin: 30px 0;
     padding: 129px 19px 0 141px;
+}
+
+.banner1:hover{
+    background-color: #fff51f;
 }
 
 .banner1 h3 {
@@ -229,11 +301,11 @@ body {
     width: 870px;
     float: right;
     background-color: #f8f8f8;
-   }
+}
 
 .main .products h3 {
     margin: 31px 25px 0;
-    font-family: roboto, sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #707070;
     font-size: 22px;
     font-weight: 900;
