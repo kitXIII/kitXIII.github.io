@@ -5,6 +5,7 @@ body {
 .container {
     width: 1500px;
     margin: 0 auto;
+    min-height: 100%;
 }
 
 .header {
@@ -522,6 +523,16 @@ body {
     font-size: 22px;
     font-weight: 900;
     font-style: italic;
+    margin-bottom: 26px;
+}
+
+.instagram-name-wrap:hover>span {
+    text-decoration: underline;
+    color: #333333;
+}
+
+.instagram-name-wrap:active>span {
+    color: #fff;
 }
 
 .inst-logo-black {
@@ -540,4 +551,51 @@ body {
 .instagram-name {
     font-size: 18px;
 }
-.
+
+.inst-line-photos li {
+    float: left;
+    margin-right: 12px;
+    background-color: #fff;
+}
+
+.inst-line-photos li:last-child {
+    margin-right: 0;
+}
+
+.inst-line-photos li a {
+    display: block;
+    width: 185px;
+    height: 185px;
+}
+
+.social-network-line li {
+    float: left;
+}
+
+.social-network-line li a {
+    display: block;
+    width: 390px;
+    height: 150px;
+}
+
+.social-network-fb {
+    background: #3b5997 url('../img/f%20icon%20%20big.png') 50% 50% no-repeat;
+}
+
+.social-network-tw {
+    background: #3fccfd url('../img/tw%20icon%20big.png') 50% 50% no-repeat;
+}
+
+.social-network-pt {
+    background: #cb2027 url('../img/pin%20icon%20big.png') 50% 50% no-repeat;
+}
+
+.footer {
+    width: 1500px;
+    height: 348px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: -348px;
+    background-color: #373737;
+    clear:both;
+}
