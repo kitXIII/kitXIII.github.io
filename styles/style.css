@@ -1,3 +1,7 @@
+html,
+body {
+    height: 100%;
+}
 body {
     background-color: #f8f8f8;
 }
@@ -623,4 +627,7 @@ body {
     margin-top: -348px;
     background-color: #373737;
     clear:both;
+}
+.clear-block {
+    height: 348px;
 }
