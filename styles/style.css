@@ -410,6 +410,14 @@ body {
     text-decoration: none;
 }
 
+.product-item a:hover{
+    box-shadow: 0 0 20px #333;
+}
+
+.product-item a:active{
+    box-shadow: none;
+}
+
 .product-item img {
     display: block;
     /*  display: block - чтобы убрать рамку вокруг картинки */
@@ -568,6 +576,15 @@ body {
     height: 185px;
 }
 
+.inst-line-photos img{
+    filter: grayscale(100%);
+}
+
+.inst-line-photos a:hover img{
+    filter: none;
+    transition: 0.7s;
+}
+
 .social-network-line li {
     float: left;
 }
@@ -579,15 +596,23 @@ body {
 }
 
 .social-network-fb {
-    background: #3b5997 url('../img/f%20icon%20%20big.png') 50% 50% no-repeat;
+    background: rgba(59, 89, 151, 0.7) url('../img/f%20icon%20%20big.png') 50% 50% no-repeat;
 }
-
+.social-network-fb:hover{
+     background-color: #3b5997;
+}
 .social-network-tw {
-    background: #3fccfd url('../img/tw%20icon%20big.png') 50% 50% no-repeat;
+    background: rgba(63, 204, 253, 0.7) url('../img/tw%20icon%20big.png') 50% 50% no-repeat;
+}
+.social-network-tw:hover{
+    background-color: #3fccfd;
 }
 
 .social-network-pt {
-    background: #cb2027 url('../img/pin%20icon%20big.png') 50% 50% no-repeat;
+    background: rgba(203, 32, 39, 0.7) url('../img/pin%20icon%20big.png') 50% 50% no-repeat;
+}
+.social-network-pt:hover{
+    background-color: #cb2027;
 }
 
 .footer {
