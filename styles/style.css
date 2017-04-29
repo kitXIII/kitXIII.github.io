@@ -225,6 +225,8 @@ body {
     margin-left: 270px;
     margin-top: -43px;
     display: none;
+    position: relative;
+    z-index: 10;
 }
 
 .menu>li:hover>ul {
@@ -247,6 +249,7 @@ body {
     text-transform: uppercase;
     display: block;
     position: relative;
+    z-index: 10;
 }
 
 .second-level li a span {
@@ -276,7 +279,7 @@ body {
     position: absolute;
     top: 13px;
     left: 130px;
-    z-index: 10;
+    z-index: 20;
 }
 
 .second-level>li:hover>a:after {
@@ -293,6 +296,8 @@ body {
     width: 165px;
     background-color: #75e3fe;
     display: none;
+    position: relative;
+    z-index: 10;
 }
 
 .second-level>li:hover>ul {
@@ -353,7 +358,7 @@ body {
 }
 
 .main .products h3 {
-    margin: 31px 25px 0;
+    margin: 31px 25px;
     font-family: 'Roboto', sans-serif;
     color: #707070;
     font-size: 22px;
@@ -372,6 +377,7 @@ body {
     float: left;
     margin-right: 30px;
     margin-bottom: 30px;
+    position:relative;
 }
 
 .product-item:nth-child(3n) {
@@ -379,7 +385,6 @@ body {
 }
 
 .product-item a {
-    /*    position: relative;*/
     display: block;
     background-color: #ffffff;
     width: 250px;
@@ -389,46 +394,89 @@ body {
 }
 
 .product-item img {
-    background-color: #eaeaea;
-    width: 250px;
-    height: 230px;
-    border: none;
     display: block;
     /*  display: block - чтобы убрать рамку вокруг картинки */
+    width: 250px;
+    height: 230px;
     margin-bottom: 25px;
+    border: none;
+    background-color: #eaeaea;
 }
 
 .product-item-about {
-    background-color: #ef6;
+    float: left;
     width: 135px;
     height: 55px;
     padding-left: 15px;
-    float: left;
+    color: #333333;
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
     font-style: italic;
-    color: #333333;
     font-size: 14px;
-    
-    
 }
 
 .product-item-price {
-    background-color: #49d;
-    width: 80px;
-    padding-right: 10px;
-    /*    height: 80px;*/
     float: right;
-    font-family: Roboto;
+    width: 80px;
+    height: 20px;
+    padding-top: 3px;
+    padding-right: 5px;
     color: #333333;
-    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
     font-weight: 900;
     font-style: italic;
     text-align: right;
+    font-size: 18px;
 }
 
 .product-item-oldprice {
-    background-color: #4fe;
-    width: 80px;
     float: right;
+    width: 80px;
+    height: 20px;
+    padding-top: 2px;
+    padding-right: 5px;
+    color: #e24602;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    text-align: right;
+    text-decoration: line-through;
+    font-size: 14px;
+}
+
+.product-status-new>a>img::after {
+    position: absolute;
+    right:0;
+    top:0;
+    content: 'NEW';
+    display: block;
+    width: 40px;
+    height: 36px;
+    background-image: url('../img/product-new-corner.png');
+    background-repeat: no-repeat;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 9px;
+    text-align: right;
+    padding-right: 6px;
+    padding-top: 10px;
+}
+.product-status-hot>a>img::after {
+    position: absolute;
+    right:0;
+    top:0;
+    content: 'HOT';
+    display: block;
+    width: 40px;
+    height: 36px;
+    background-image: url('../img/product-hot-corner.png');
+    background-repeat: no-repeat;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 9px;
+    text-align: right;
+    padding-right: 6px;
+    padding-top: 10px;
 }
