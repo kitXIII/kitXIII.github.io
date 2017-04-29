@@ -357,7 +357,23 @@ body {
     background-color: #f8f8f8;
 }
 
-.main .products h3 {
+.products-header {
+    margin: 57px 25px 31px;
+    font-family: 'Roboto', sans-serif;
+    color: #707070;
+    font-size: 22px;
+    font-weight: 900;
+    font-style: italic;
+    text-align: left;
+    line-height: 22px;
+    text-transform: uppercase;
+}
+
+.products-header-top {
+    margin-top: 31px;
+}
+
+.products-header-top {
     margin: 31px 25px;
     font-family: 'Roboto', sans-serif;
     color: #707070;
@@ -377,7 +393,7 @@ body {
     float: left;
     margin-right: 30px;
     margin-bottom: 30px;
-    position:relative;
+    position: relative;
 }
 
 .product-item:nth-child(3n) {
@@ -446,8 +462,8 @@ body {
 
 .product-status-new>a>img::after {
     position: absolute;
-    right:0;
-    top:0;
+    right: 0;
+    top: 0;
     content: 'NEW';
     display: block;
     width: 40px;
@@ -462,10 +478,11 @@ body {
     padding-right: 6px;
     padding-top: 10px;
 }
+
 .product-status-hot>a>img::after {
     position: absolute;
-    right:0;
-    top:0;
+    right: 0;
+    top: 0;
     content: 'HOT';
     display: block;
     width: 40px;
@@ -480,3 +497,47 @@ body {
     padding-right: 6px;
     padding-top: 10px;
 }
+
+.brands-line {
+    background: #fff url('../img/brands-line.png') 14px 70px no-repeat;
+    width: 1170px;
+    height: 160px;
+}
+
+.instagram-line {
+    background-color: #eaeaea;
+    width: 1170px;
+    height: 300px;
+    padding-top: 50px;
+}
+
+.instagram-name-wrap {
+    display: block;
+    width: 300px;
+    /*    расчетное значение 274 */
+    margin: 0 auto;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    color: #333333;
+    font-size: 22px;
+    font-weight: 900;
+    font-style: italic;
+}
+
+.inst-logo-black {
+    width: 28px;
+    height: 28px;
+    background: url('../img/insta%20icon%20black.png') no-repeat;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 5px;
+}
+
+.instagram-name-wrap span {
+    display: inline-block;
+}
+
+.instagram-name {
+    font-size: 18px;
+}
+.
