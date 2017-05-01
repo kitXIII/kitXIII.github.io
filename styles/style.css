@@ -2,6 +2,7 @@ html,
 body {
     height: 100%;
 }
+
 body {
     background-color: #f8f8f8;
 }
@@ -414,11 +415,11 @@ body {
     text-decoration: none;
 }
 
-.product-item a:hover{
+.product-item a:hover {
     box-shadow: 0 0 20px #333;
 }
 
-.product-item a:active{
+.product-item a:active {
     box-shadow: none;
 }
 
@@ -580,11 +581,11 @@ body {
     height: 185px;
 }
 
-.inst-line-photos img{
+.inst-line-photos img {
     filter: grayscale(100%);
 }
 
-.inst-line-photos a:hover img{
+.inst-line-photos a:hover img {
     filter: none;
     transition: 0.7s;
 }
@@ -602,32 +603,202 @@ body {
 .social-network-fb {
     background: rgba(59, 89, 151, 0.7) url('../img/f%20icon%20%20big.png') 50% 50% no-repeat;
 }
-.social-network-fb:hover{
-     background-color: #3b5997;
+
+.social-network-fb:hover {
+    background-color: #3b5997;
 }
+
 .social-network-tw {
-    background: rgba(63, 204, 253, 0.7) url('../img/tw%20icon%20big.png') 50% 50% no-repeat;
+    background: rgba(63, 204, 253, 0.5) url('../img/tw%20icon%20big.png') 50% 50% no-repeat;
 }
-.social-network-tw:hover{
+
+.social-network-tw:hover {
     background-color: #3fccfd;
 }
 
 .social-network-pt {
     background: rgba(203, 32, 39, 0.7) url('../img/pin%20icon%20big.png') 50% 50% no-repeat;
 }
-.social-network-pt:hover{
+
+.social-network-pt:hover {
     background-color: #cb2027;
 }
 
 .footer {
-    width: 1500px;
-    height: 348px;
+    width: 1308px;
+    height: 273px;
     margin-right: auto;
     margin-left: auto;
     margin-top: -348px;
     background-color: #373737;
-    clear:both;
+    clear: both;
+    padding-top: 75px;
+    padding-left: 192px;
 }
+
 .clear-block {
     height: 348px;
+}
+
+.footer-text {
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 12px;
+    text-align: left;
+}
+
+.footer-headers-text {
+    font-family: raleway, sans-serif;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 18px;
+    margin-bottom: 8px;
+}
+
+.footer-submenu {
+    width: 198px;
+    float: left;
+}
+
+.footer-submenu li:first-child {
+    margin-bottom: 28px;
+}
+
+.footer-submenu a {
+    color: inherit;
+    line-height: 18px;
+    text-decoration: none;
+}
+
+.footer-submenu a:hover {
+    text-decoration: underline;
+}
+
+.footer-submenu a:active {
+    text-decoration: none;
+    color: grey;
+}
+
+.footer-newsletter {
+    float: left;
+    width: 300px;
+}
+
+.footer-newsletter label {
+    display: block;
+    width: 195px;
+}
+
+.footer-newsletter form {
+    margin-top: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    line-height: 21px;
+    text-align: left;
+}
+
+.footer-newsletter input[type="email"] {
+    background-color: #fff51f;
+    width: 160px;
+    height: 30px;
+    border: none;
+    padding: 0 0 0 20px;
+    color: #333333;
+    font-weight: 700;
+}
+
+.footer-newsletter input[type="email"]:hover {
+    background-color: #fff;
+}
+
+.footer-newsletter input[type="email"]:focus {
+    color: #333333;
+}
+
+.footer-newsletter input[type="submit"] {
+    background-color: #000000;
+    width: 71px;
+    height: 30px;
+    border: none;
+    margin-left: -3px;
+    color: #ffffff;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.footer-newsletter input[type="submit"]:hover,
+.footer-newsletter input[type="submit"]:focus {
+    font-weight: 700;
+}
+
+.footer-newsletter input[type="submit"]:active {
+    background-color: #fff;
+    color: #333;
+}
+
+.footer-payment {
+    margin-top: 46px;
+    margin-left: -8px;
+    width: 267px;
+}
+
+.footer-payment li {
+    float: left;
+    margin-right: 10px;
+    width: 36px;
+    height: 22px;
+    position: relative;
+}
+
+.footer-payment li:last-child {
+    margin-right: 0;
+}
+
+.footer-payment a {
+    display: block;
+    width: 36px;
+    height: 22px;
+}
+
+.footer-payment a:hover {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+}
+
+.footer-payment a:active {
+    outline: 1px solid #fff;
+}
+
+.footer-about {
+    float: left;
+    width: 232px;
+}
+
+.footer-about table {
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: left;
+}
+
+.footer-about td {
+    min-width: 58px;
+}
+
+.footer-about a {
+    color: #faef03;
+    text-decoration: none;
+}
+.footer-about a:hover{
+    text-decoration: underline;
+}
+.footer-about a:active{
+    color: #fff;
 }
