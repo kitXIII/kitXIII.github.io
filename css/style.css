@@ -41,13 +41,17 @@ body {
     height: 16px;
 }
 
-.social-small-items li {
+.social-small-items li,
+.contacts-social-small-items li {
     float: left;
     width: 16px;
+    height: 16px;
     margin-right: 10px;
 }
 
-.social-small-items a {
+.social-small-items a,
+.contacts-social-small-items a {
+    text-align: center;
     display: block;
     width: 16px;
 }
@@ -56,7 +60,13 @@ body {
     margin-right: 0;
 }
 
-.social-small-items a:hover img {
+.social-small-items img,
+.contacts-social-small-items img {
+    vertical-align: middle;
+}
+
+.social-small-items a:hover img,
+.contacts-social-small-items a:hover img {
     filter: invert(100%);
 }
 
@@ -152,13 +162,16 @@ body {
     color: #f8f8f8;
 }
 
-.main .sidebar {
+.sidebar {
     float: left;
 }
 
 .menu {
     background-color: #26d2fc;
     font-family: 'Roboto', sans-serif;
+}
+
+.top-overflow {
     margin-top: -20px;
 }
 
@@ -331,7 +344,6 @@ body {
 }
 
 .main .products {
-    margin-top: -20px;
     width: 870px;
     float: right;
     background-color: #f8f8f8;
@@ -699,14 +711,14 @@ body {
     width: 71px;
     height: 30px;
     border: none;
-    margin-left: -3px;
+    margin-left: -2px;
     color: #ffffff;
     font-weight: 400;
     text-transform: uppercase;
 }
 
 .footer-newsletter input[type="submit"]:hover,
-.footer-newsletter input[type="submit"]:focus {
+.footer-newsletter input[type="submit"]:focus{
     font-weight: 700;
 }
 
@@ -832,10 +844,12 @@ body {
 .social-small-footer a {
     display: block;
     width: 15px;
+    text-align: center;
 }
 
 .social-small-footer img {
     vertical-align: middle;
+    filter: invert(100%);
 }
 
 .social-small-footer li:last-child {
@@ -843,5 +857,40 @@ body {
 }
 
 .social-small-footer a:hover img {
-    filter: invert();
+    filter: none;
+}
+
+
+/* -------Contacts-----------------*/
+
+.contacts-header {
+    background-color: #abeafa;
+    height: 350px;
+}
+
+.contacts-header {
+    position: relative;
+}
+
+.contacts-logo {
+    position: absolute;
+    top: 24px;
+    left: 234px;
+    display: block;
+    width: 125px;
+    height: 111px;
+    background-image: url(/img/surfhouse%20logo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contacts-social-small-items {
+    position: absolute;
+    top: 40px;
+    right: 173px;
+    background-color: rgba(193, 193, 193, 0.8);
+    width: 176px;
+    height: 26px;
+    padding-left: 24px;
+    padding-top: 9px;
 }
