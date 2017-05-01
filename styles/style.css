@@ -56,8 +56,8 @@ body {
     margin-right: 0;
 }
 
-.social-small-items a:hiver img {
-    filter: invert();
+.social-small-items a:hover img {
+    filter: invert(100%);
 }
 
 .clr {
@@ -556,11 +556,13 @@ body {
 }
 
 .inst-line-photos img {
-    filter: grayscale(100%);
+    filter: none;
+    transition: 0.7s;
 }
 
 .inst-line-photos a:hover img {
-    filter: none;
+    filter: sepia(100%);
+    /*    filter: none;*/
     transition: 0.7s;
 }
 
@@ -786,6 +788,8 @@ body {
     margin-top: -47px;
     padding-left: 171px;
     padding-top: 18px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .subfooter p {
@@ -830,10 +834,14 @@ body {
     width: 15px;
 }
 
+.social-small-footer img {
+    vertical-align: middle;
+}
+
 .social-small-footer li:last-child {
     margin-right: 0;
 }
-.social-small-footer a:hover img{
-    filter:invert();
-}
 
+.social-small-footer a:hover img {
+    filter: invert();
+}
