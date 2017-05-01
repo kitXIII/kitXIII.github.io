@@ -33,57 +33,27 @@ body {
     background-size: cover;
 }
 
-.header .items {
-    float: right;
-    width: 120px;
-    height: 16px;
+.social-small-items {
     margin-top: 50px;
     margin-right: 229px;
-    position: relative;
-}
-
-.header .items>a {
-    position: absolute;
-}
-
-.header .logo-facebook {
-    width: 8px;
+    width: 120px;
+    float: right;
     height: 16px;
-    top: 0;
-    left: 0;
-    background-image: url(/img/facebook%20icon.png);
 }
 
-.header .logo-twitter {
+.social-small-items li {
+    float: left;
     width: 16px;
-    height: 14px;
-    top: 1px;
-    left: 23px;
-    background-image: url(/img/twitter%20icon.png);
+    margin-right: 10px;
 }
 
-.header .logo-youtube {
+.social-small-items a {
+    display: block;
     width: 16px;
-    height: 16px;
-    top: 0px;
-    left: 50px;
-    background-image: url(/img/youtube%20icon.png);
 }
 
-.header .logo-pinterest {
-    width: 14px;
-    height: 16px;
-    top: 0px;
-    left: 78px;
-    background-image: url(/img/pinterest%20icon.png);
-}
-
-.header .logo-instagram {
-    width: 16px;
-    height: 16px;
-    top: 0px;
-    left: 104px;
-    background-image: url(/img/insta%20icon.png);
+.social-small-items li:last-child {
+    margin-right: 0;
 }
 
 .clr {
@@ -796,9 +766,66 @@ body {
     color: #faef03;
     text-decoration: none;
 }
-.footer-about a:hover{
+
+.footer-about a:hover {
     text-decoration: underline;
 }
-.footer-about a:active{
+
+.footer-about a:active {
     color: #fff;
+}
+
+.subfooter {
+    background-color: #333333;
+    width: 1329px;
+    height: 29px;
+    margin-top: -47px;
+    padding-left: 171px;
+    padding-top: 18px;
+}
+
+.subfooter p {
+    display: inline-block;
+    vertical-align:middle;
+}
+
+.subfooter p,
+.subfooter a {
+    font-family: 'Roboto', sans-serif;
+    color: #dad9d9;
+    font-size: 12px;
+    font-weight: 400;
+    text-decoration: none;
+/*    line-height: 24px;*/
+}
+
+.subfooter a:hover {
+    text-decoration: underline;
+}
+
+.subfooter .copy {
+    font-size: 1.2em;
+}
+
+.social-small-footer {
+    height: 16px;
+    display: inline-block;
+    vertical-align:middle;
+    margin-left: 548px;
+    width: 172px;
+}
+
+.social-small-footer li {
+    float: left;
+    width: 16px;
+    margin-right: 10px;
+}
+
+.social-small-footer a {
+    display: block;
+    width: 16px;
+}
+
+.social-small-footer li:last-child {
+    margin-right: 0;
 }
