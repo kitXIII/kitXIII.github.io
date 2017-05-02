@@ -42,6 +42,10 @@ body {
     background-size: cover;
 }
 
+.logo:hover {
+    filter: invert(40%);
+}
+
 .social-small-items {
     margin-top: 50px;
     margin-right: 229px;
@@ -875,13 +879,11 @@ body {
 .contacts-header {
     background-color: #abeafa;
     height: 350px;
-}
-
-.contacts-header {
     position: relative;
 }
 
-.contacts-logo {
+.contacts-header .logo,
+.catalog-header .logo{
     position: absolute;
     top: 24px;
     left: 234px;
@@ -904,14 +906,13 @@ body {
     padding-top: 7px;
 }
 
-.contacts-info-area {
+.info-area {
     float: right;
     width: 870px;
-    ;
+    margin-bottom: 120px;
 }
 
 .breadcrumb {
-    /*    float: left;*/
     margin-top: 12px;
     margin-left: 25px;
     font-family: 'Roboto', sans-serif;
@@ -1016,7 +1017,7 @@ body {
     color: #000;
 }
 
-.delimiter {
+.contacts-input-form .delimiter {
     float: left;
     margin-top: 185px;
     height: 330px;
@@ -1135,3 +1136,17 @@ body {
     background: #ffffff url('/img/contact-brands.png') no-repeat 50% 50%;
     margin-top: 15px;
 }
+
+
+/* -------Catalog-----------------*/
+
+.catalog-header {
+    background-color: #abeafa;
+    width: 1500px;
+    height: 350px;
+    position: relative;
+}
+.bufer-height95 {
+    margin-bottom: 95px;
+}
+
