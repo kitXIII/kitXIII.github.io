@@ -67,6 +67,7 @@ body {
     text-align: center;
     display: block;
     width: 16px;
+    position: relative;
 }
 
 .social-small-items li:last-child {
@@ -80,7 +81,7 @@ body {
 
 .social-small-items a:hover img,
 .contacts-social-small-items a:hover img {
-    filter: invert(100%);
+    filter: invert(50%);
 }
 
 .clr {
