@@ -318,14 +318,12 @@ body {
     left: 18px;
 }
 
-.third-level li a:hover {
-    color: #333333;
-    text-decoration: underline;
+.second-level li a:hover {
+    color: #707070;
 }
 
 .third-level li a:active {
     color: #f8f8f8;
-    text-decoration: none;
 }
 
 .banner1 {
@@ -527,7 +525,6 @@ body {
 .instagram-name-wrap {
     display: block;
     width: 300px;
-    /*    расчетное значение 274 */
     margin: 0 auto;
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
@@ -587,7 +584,6 @@ body {
 
 .inst-line-photos a:hover img {
     filter: sepia(100%);
-    /*    filter: none;*/
     transition: 0.7s;
 }
 
