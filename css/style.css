@@ -1018,10 +1018,11 @@ body {
 .contacts-input-form input:focus,
 .contacts-input-form textarea:focus {
     outline: 1px solid #333;
-    color: #000;
+    color: #333;
+    font-weight: 700;
 }
 
-.contacts-input-form .delimiter {
+.delimiter {
     float: left;
     margin-top: 185px;
     height: 330px;
