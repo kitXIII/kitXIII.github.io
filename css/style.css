@@ -37,7 +37,7 @@ body {
     height: 111px;
     margin-top: 24px;
     margin-left: 234px;
-    background-image: url(/img/surfhouse%20logo.png);
+    background-image: url("../img/surfhouse%20logo.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -265,7 +265,7 @@ body {
 .second-level li a:before {
     content: "";
     display: block;
-    background-image: url(/img/menu-item.png);
+    background-image: url("../img/menu-item.png");
     background-repeat: no-repeat;
     width: 4px;
     height: 4px;
@@ -278,7 +278,7 @@ body {
 .second-level>li>a:after {
     content: "";
     display: none;
-    background-image: url(/img/second-level-menu-indic.png);
+    background-image: url("../img/second-level-menu-indic.png");
     background-repeat: no-repeat;
     width: 11px;
     height: 14px;
@@ -894,7 +894,7 @@ body {
     display: block;
     width: 125px;
     height: 111px;
-    background-image: url(/img/surfhouse%20logo.png);
+    background-image: url("../img/surfhouse%20logo.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -1050,7 +1050,7 @@ body {
     display: inline-block;
     width: 25px;
     height: 26px;
-    background: url('/img/contact-address-icon.png') no-repeat 0 50%;
+    background: url("../img/contact-address-icon.png") no-repeat 0 50%;
 }
 
 .address-text {
@@ -1082,7 +1082,7 @@ body {
     display: inline-block;
     width: 25px;
     height: 16px;
-    background: url('/img/contacts-phone-icon.png') no-repeat 50% 50%;
+    background: url("../img/contacts-phone-icon.png") no-repeat 50% 50%;
 }
 
 .phone-number {
@@ -1102,7 +1102,7 @@ body {
     display: inline-block;
     width: 25px;
     height: 16px;
-    background: url('/img/contacts-mail-icon.png') no-repeat 50% 50%;
+    background: url("../img/contacts-mail-icon.png") no-repeat 50% 50%;
 }
 
 .e-mail {
@@ -1138,7 +1138,7 @@ body {
 .contacts-brand {
     width: 870px;
     height: 160px;
-    background: #ffffff url('/img/contact-brands.png') no-repeat 50% 50%;
+    background: #ffffff url("../img/contact-brands.png") no-repeat 50% 50%;
     margin-top: 15px;
 }
 
