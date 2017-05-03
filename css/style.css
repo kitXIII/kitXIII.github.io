@@ -1171,3 +1171,37 @@ body {
 h3.products-header-black {
     color: #333333;
 }
+
+.about-product-area form {
+    width: 320px;
+    padding-left: 50px;
+    margin-top: 440px;
+    position: relative;
+
+}
+
+.about-product-area label {
+    background-color: #eaeaea;
+    width: 70px;
+    height: 110px;
+    float: left;
+    margin-right: 30px;
+}
+.radio:checked+label{
+    background-color: #fff;
+}
+
+.radio:checked+label+img{
+    display: block;
+}
+
+.about-product-area form img{
+    position: absolute;
+    top: -400px;
+    left: 0;
+    display:none;
+}
+
+.radio{
+    display: none;
+}
