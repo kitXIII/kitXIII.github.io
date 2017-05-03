@@ -1,49 +1,239 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Сноуборды и аксессуары</title>
-    <link rel="stylesheet" href="style.css">
+    <title>SURFHOUSE</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <ui class="menu no-marker">
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="catalog.html">Каталог</a></li>
-        <li><a href="contacts.html">Контакты</a></li>
-    </ui>
-    <hr>
+    <div class="container">
+        <div class="contacts-header">
+            <div class="contacts-map-container">
+                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae2b08a7ead693b32742bb8f8ae55baaf2d8bc919172c46ff661b4c4b65e2a028&amp;width=100%25&amp;height=350&amp;lang=ru_RU&amp;scroll=true"></script>
+            </div>
+            <a href="index.html" class="logo"></a>
+            <ul class="contacts-social-small-items">
+                <li>
+                    <a href="https://ru-ru.facebook.com/"><img src="img/facebook%20icon.png" alt="fb"></a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/"><img src="img/twitter%20icon.png" alt="tw"></a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com"><img src="img/youtube%20icon.png" alt="yt"></a>
+                </li>
+                <li>
+                    <a href="https://ru.pinterest.com/"><img src="img/pinterest%20icon.png" alt="pt"></a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/"><img src="img/insta%20icon.png" alt="ins"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="sidebar">
+                <ul class="menu">
+                    <li>Menu</li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="catalog.html">apparel</a>
+                        <ul class="second-level">
+                            <li><a href="#"><span>Men</span></a></li>
+                            <li><a href="catalog.html"><span>Women</span></a></li>
+                            <li><a href="#"><span>Uni</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">surf apparel</a></li>
+                    <li><a href="#">windsurf</a>
+                        <ul class="second-level">
+                            <li><a href="#"><span>kites</span></a></li>
+                            <li><a href="#"><span>kiteboards</span></a></li>
+                            <li><a href="#"><span>bags</span></a>
+                                <ul class="third-level">
+                                    <li><a href="#"><span>MAGIC Kit</span></a></li>
+                                    <li><a href="#"><span>Pro limit s0214</span></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"><span>equipment</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">kitesurf</a></li>
+                    <li><a href="#">accessories</a></li>
+                    <li><a href="#">sale</a></li>
+                    <li><a href="#">brands</a></li>
+                    <li><a href="#">blog</a></li>
+                    <li><a href="#">Gadgets</a></li>
+                    <li><a href="#">cantact</a></li>
+                </ul>
+                <a href="#" class="banner1">
+                    <h3>Now is open!</h3>
+                </a>
+            </div>
+            <div class="info-area">
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active"><span>Contact Us</span></li>
+                </ul>
 
-    <h3>Напишите нам</h3>
-    <!--    отправлять пока некуда, поле action оставляем пустым-->
-    <form action="">
-        <label for="name">Ваше имя: </label> <br>
-        <input id="name" type="text" name="name"> <br>
-        <label for="mail">Ваш email: </label> <br>
-        <input id="mail" type="email" name="email"><br>
-        <label for="theme">Тема сообщения: </label> <br>
-        <input id="theme" type="text" name="theme"><br>
-        <label for="message">Ваше сообщение:</label> <br>
-        <textarea id="message" name="message"  cols="40" rows="10" placeholder="Введите текст сообщения"></textarea><br>
-        <input type="submit" value="Отпарвить">
-        <input type="reset" value="Очистить">
-    </form>
-    <br>
-
-    <h3>Наш адрес</h3>
-
-    <ul class="no-marker">
-        <li>426000 г.Ижевск, ул. Телегина, д.&nbsp;30</li>
-        <li>тел. 123-456-78-90</li>
-        <li>Email: sale@sbshop.xyz</li>
-    </ul>
-
-    <p>Схема проезда:</p>
-    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ade2c737c2c9bf9176d483cc06d3a412a65938c6452c6edbd9421bdcf98ee7554&amp;width=500&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
-
-    <hr>
-    <p> Все права защищены&copy; </p>
-
+                <form class="contacts-input-form" action="">
+                    <label class="marked" for="name">full name</label> <br>
+                    <input id="name" type="text" name="name" placeholder="e.g.  robert smith"><br>
+                    <label class="marked" for="e-mail">email</label> <br>
+                    <input id="e-mail" type="email" name="e-mail" placeholder="e.g. name@home.com"><br>
+                    <label for="company">company</label> <br>
+                    <input id="company" type="text" name="company" placeholder="e.g. your company (optional)"><br>
+                    <label class="marked" for="subject">subject</label> <br>
+                    <input id="subject" type="text" name="subject" placeholder="e.g. info"><br>
+                    <label for="message">message</label> <br>
+                    <textarea id="message" name="message"></textarea><br>
+                    <input type="submit" value="SUBMIT">
+                </form>
+                <div class="delimiter"></div>
+                <div class="contacts-address-area">
+                    <h3>Address</h3>
+                    <div class="address-layer">
+                        <div class="address-icon"></div>
+                        <div class="address-text">Ut interdum tristique est com modo pharetra.</div>
+                        <div class="address-text2">Lorem Ipsum is simply dummy text of the printing and over</div>
+                    </div>
+                    <div class="phone-layer">
+                        <div class="phone-icon"></div>
+                        <div class="phone-number">1-900-324-9876</div>
+                    </div>
+                    <div class="mail-layer">
+                        <div class="mail-icon"></div>
+                        <a class="e-mail" href="mailto:info@surfhouse.com">info@surfhouse.com</a>
+                    </div>
+                    <div class="address-notify">
+                        If you have questions about your order or need any general information our customer service team will be happy to assist you.
+                    </div>
+                </div>
+                <div class="clr"></div>
+                <div class="contacts-brand"></div>
+            </div>
+            <div class="clr"></div>
+            <div class="clear-block"></div>
+        </div>
+    </div>
+    <div class="footer-area">
+        <ul class="social-network-line">
+            <li>
+                <a class="social-network-fb" href="https://ru-ru.facebook.com/" target="_blank"></a>
+            </li>
+            <li>
+                <a class="social-network-tw" href="https://twitter.com/" target="_blank"></a>
+            </li>
+            <li>
+                <a class="social-network-pt" href="https://ru.pinterest.com/" target="_blank"></a>
+            </li>
+        </ul>
+        <div class="clr"></div>
+        <div class="footer footer-text">
+            <ul class="footer-submenu">
+                <li class="footer-headers-text">Category</li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">about us</a></li>
+                <li><a href="#">eshop</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">new collections</a></li>
+                <li><a href="#">blog</a></li>
+                <li><a href="#">contact</a></li>
+            </ul>
+            <ul class="footer-submenu">
+                <li class="footer-headers-text">Our Account</li>
+                <li><a href="#">Your Account</a></li>
+                <li><a href="#">Personal information</a></li>
+                <li><a href="#">Addresses</a></li>
+                <li><a href="#">Discount</a></li>
+                <li><a href="#">Orders history</a></li>
+                <li><a href="#">Addresses</a></li>
+                <li><a href="#">Search Terms</a></li>
+            </ul>
+            <ul class="footer-submenu">
+                <li class="footer-headers-text">Our Support</li>
+                <li><a href="#">Site Map</a></li>
+                <li><a href="#">Search Terms</a></li>
+                <li><a href="#">Advanced Search</a></li>
+                <li><a href="#">Mobile</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Mobile</a></li>
+                <li><a href="#">Addresses</a></li>
+            </ul>
+            <div class="footer-newsletter">
+                <p class="footer-headers-text">Newsletter</p>
+                <label for="mail">Join thousands of other people subscribe to our news </label>
+                <form action="">
+                    <input id="mail" type="email" name="email" placeholder="INSERT EMAIL">
+                    <input type="submit" value="SUBMIT">
+                </form>
+                <ul class="footer-payment">
+                    <li>
+                        <a href="#"><img src="img/payment_icon_aex.png" alt="aex"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="img/payment_icon_mastercard.png" alt="mcard"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="img/payment_icon_maestero.png" alt="maestro"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="img/payment_icon_paypal.png" alt="paypal"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="img/payment_icon_discover.png" alt="discover"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="img/payment_icon_visa.png" alt="visa"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-about">
+                <p class="footer-headers-text">About Us</p>
+                <p class="footer-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
+                <table>
+                    <tr>
+                        <td>Phone:</td>
+                        <td>1-999-342-9876</td>
+                    </tr>
+                    <tr>
+                        <td>e-mail:</td>
+                        <td><a href="mailto:info@surfhouse.com">info@surfhouse.com</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="clr"></div>
+        </div>
+        <div class="subfooter">
+            <p class="copy"> &copy; </p>
+            <p> 2014 SURFHOUSE. All rights reserved - Designed by <a href="theuncreativelab.com">theuncreativelab.com</a></p>
+            <ul class="social-small-footer">
+                <li>
+                    <a href="https://ru-ru.facebook.com/"><img src="img/footer-facebook.png" alt="fb"></a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/"><img src="img/footer-twitter.png" alt="tw"></a>
+                </li>
+                <li>
+                    <a href="https://ru.pinterest.com/"><img src="img/footer-pinterest.png" alt="pt"></a>
+                </li>
+                <li>
+                    <a href="https://www.google.com"><img src="img/footer-google-plus.png" alt="google-plus"></a>
+                </li>
+                <li>
+                    <a href="https://google.com/"><img src="img/footer-tumblr.png" alt="tumblr"></a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/"><img src="img/footer-instagram.png" alt="ins"></a>
+                </li>
+                <li>
+                    <a href="https://www.google.com/"><img src="img/footer-rss.png" alt="rss"></a>
+                </li>
+            </ul>
+            <div class="clr"></div>
+        </div>
+    </div>
 </body>
+
 </html>
