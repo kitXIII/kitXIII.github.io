@@ -35,38 +35,40 @@
         </div>
         <div class="main">
             <div class="sidebar">
-                <ul class="menu">
-                    <li>Menu</li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="catalog.html">apparel</a>
-                        <ul class="second-level">
-                            <li><a href="#"><span>Men</span></a></li>
-                            <li><a href="catalog.html"><span>Women</span></a></li>
-                            <li><a href="#"><span>Uni</span></a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">surf apparel</a></li>
-                    <li><a href="#">windsurf</a>
-                        <ul class="second-level">
-                            <li><a href="#"><span>kites</span></a></li>
-                            <li><a href="#"><span>kiteboards</span></a></li>
-                            <li><a href="#"><span>bags</span></a>
-                                <ul class="third-level">
-                                    <li><a href="#"><span>MAGIC Kit</span></a></li>
-                                    <li><a href="#"><span>Pro limit s0214</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#"><span>equipment</span></a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">kitesurf</a></li>
-                    <li><a href="#">accessories</a></li>
-                    <li><a href="#">sale</a></li>
-                    <li><a href="#">brands</a></li>
-                    <li><a href="#">blog</a></li>
-                    <li><a href="#">Gadgets</a></li>
-                    <li><a href="#">cantact</a></li>
-                </ul>
+                <nav>
+                    <ul class="menu">
+                        <li>Menu</li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="catalog.html">apparel</a>
+                            <ul class="second-level">
+                                <li><a href="#"><span>Men</span></a></li>
+                                <li><a href="catalog.html"><span>Women</span></a></li>
+                                <li><a href="#"><span>Uni</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">surf apparel</a></li>
+                        <li><a href="#">windsurf</a>
+                            <ul class="second-level">
+                                <li><a href="#"><span>kites</span></a></li>
+                                <li><a href="#"><span>kiteboards</span></a></li>
+                                <li><a href="#"><span>bags</span></a>
+                                    <ul class="third-level">
+                                        <li><a href="#"><span>MAGIC Kit</span></a></li>
+                                        <li><a href="#"><span>Pro limit s0214</span></a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#"><span>equipment</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">kitesurf</a></li>
+                        <li><a href="#">accessories</a></li>
+                        <li><a href="#">sale</a></li>
+                        <li><a href="#">brands</a></li>
+                        <li><a href="#">blog</a></li>
+                        <li><a href="#">Gadgets</a></li>
+                        <li><a href="#">cantact</a></li>
+                    </ul>
+                </nav>
                 <a href="#" class="banner1">
                     <h3>Now is open!</h3>
                 </a>
@@ -77,11 +79,13 @@
                     <li class="active"><span>Contact Us</span></li>
                 </ul>
 
-                <form class="contacts-input-form" action="">
+                <form class="contacts-input-form" action="#">
                     <label class="marked" for="name">full name</label> <br>
                     <input id="name" type="text" name="name" placeholder="e.g.  robert smith"><br>
                     <label class="marked" for="e-mail">email</label> <br>
                     <input id="e-mail" type="email" name="e-mail" placeholder="e.g. name@home.com"><br>
+                    <label for="phone">phone number</label> <br>
+                    <input id="phone" type="tel" pattern="+7[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" name="phone" placeholder="e.g. +7-123-123-00-00"><br>
                     <label for="company">company</label> <br>
                     <input id="company" type="text" name="company" placeholder="e.g. your company (optional)"><br>
                     <label class="marked" for="subject">subject</label> <br>
@@ -164,7 +168,7 @@
             <div class="footer-newsletter">
                 <p class="footer-headers-text">Newsletter</p>
                 <label for="mail">Join thousands of other people subscribe to our news </label>
-                <form action="">
+                <form action="#">
                     <input id="mail" type="email" name="email" placeholder="INSERT EMAIL">
                     <input type="submit" value="SUBMIT">
                 </form>
