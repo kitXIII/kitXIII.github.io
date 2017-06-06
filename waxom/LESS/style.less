@@ -171,7 +171,7 @@ body {
 
 //STYLES
 header {
-   min-height: 1024px;
+   max-height: 1024px;
     background-image: url('../img/header-photo.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -263,8 +263,10 @@ header {
     border: 1px solid @brown-h;
     outline: none;
     z-index: -1;
+    opacity:0;
     &:focus {
         z-index: 60;
+        opacity:1;
     }
 }
 
@@ -412,14 +414,18 @@ header {
 .services_area {
     .full-width;
     .services {
-        padding-bottom: 80px;
+        padding-bottom: 50px;
     }
 }
 
 .services-menu {
     display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
     li {
         padding: 0 15px;
+        margin-bottom: 30px;
+        max-width: 262px;
     }
     a {
         display: block;
@@ -545,6 +551,7 @@ header {
     max-width: 600px;
     display: flex;
     justify-content: space-between;
+
     a {
         height: 32px;
         display: flex;
@@ -554,6 +561,7 @@ header {
         border: 1px solid @brown-h;
         background-color: @white;
         padding: 0 22px;
+        margin: 0 4px;
         color: @btn-brown-color;
         transition: background-color 0.5s ease, color 0.5s ease;
         .montserrat(300);
@@ -565,6 +573,18 @@ header {
         &:active {
             background-color: @grey;
             color: @btn-brown-color;
+        }        
+    }
+     li{
+        &:last-child{
+            a{
+                margin-right: 0;
+            }
+        }
+        &:first-child{
+            a{
+                margin-left: 0;
+            }
         }
     }
 }
@@ -575,7 +595,7 @@ header {
     flex-wrap: wrap;
     li {
         font-size: 0px;
-        margin-bottom: 30px;
+        margin-bottom: 30px;        
     }
     li:hover {
         figcaption {
@@ -1341,8 +1361,10 @@ footer {
         display: none;
     }
     header{
-        background-size: contain;
-        min-height:auto;
+        height: 640px;
+    }
+    .header-slider-wrap{
+        height: 544px;
     }
     header,
     footer,
@@ -1370,12 +1392,16 @@ footer {
     .std-section {
         width: 96%;
     }
+    .latest_project-items,
     .latest_project-menu {
         justify-content: center;
     }
-    .latest_project-items {
-        margin-left: 60px;
-        margin-right: 60px;
+    .latest_project-items li {
+        margin-left: 20px;
+        margin-right: 20px;
+        &:not(:nth-child(-n+4)){
+            display: none;
+        }
     }
 }
 

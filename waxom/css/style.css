@@ -89,7 +89,7 @@ body {
   background-color: #f1eee9;
 }
 header {
-  min-height: 1024px;
+  max-height: 1024px;
   background-image: url('../img/header-photo.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -212,9 +212,11 @@ header {
   border: 1px solid #555555;
   outline: none;
   z-index: -1;
+  opacity: 0;
 }
 .header-top-search-input:focus {
   z-index: 60;
+  opacity: 1;
 }
 .header-slider-wrap {
   max-width: 1170px;
@@ -389,16 +391,25 @@ header {
   margin-right: auto;
 }
 .services_area .services {
-  padding-bottom: 80px;
+  padding-bottom: 50px;
 }
 .services-menu {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .services-menu li {
   padding: 0 15px;
+  margin-bottom: 30px;
+  max-width: 262px;
 }
 .services-menu a {
   display: block;
@@ -560,6 +571,7 @@ header {
   border: 1px solid #555555;
   background-color: #ffffff;
   padding: 0 22px;
+  margin: 0 4px;
   color: #998675;
   -webkit-transition: background-color 0.5s ease, color 0.5s ease;
   -o-transition: background-color 0.5s ease, color 0.5s ease;
@@ -575,6 +587,12 @@ header {
 .latest_project-menu a:active {
   background-color: #f1eee9;
   color: #998675;
+}
+.latest_project-menu li:last-child a {
+  margin-right: 0;
+}
+.latest_project-menu li:first-child a {
+  margin-left: 0;
 }
 .latest_project-items {
   display: -webkit-box;
@@ -1506,8 +1524,10 @@ footer {
     display: none;
   }
   header {
-    background-size: contain;
-    min-height: auto;
+    height: 640px;
+  }
+  .header-slider-wrap {
+    height: 544px;
   }
   header,
   footer,
@@ -1533,15 +1553,19 @@ footer {
   .std-section {
     width: 96%;
   }
+  .latest_project-items,
   .latest_project-menu {
     -webkit-box-pack: center;
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .latest_project-items {
-    margin-left: 60px;
-    margin-right: 60px;
+  .latest_project-items li {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .latest_project-items li:not(:nth-child(-n+4)) {
+    display: none;
   }
 }
 /* смарт */
