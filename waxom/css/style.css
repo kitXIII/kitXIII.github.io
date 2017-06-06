@@ -93,6 +93,7 @@ header {
   background-image: url('../img/header-photo.png');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
@@ -1504,8 +1505,23 @@ footer {
   .header-top-search {
     display: none;
   }
+  header {
+    background-size: contain;
+    min-height: auto;
+  }
+  header,
+  footer,
+  .video_presentation {
+    width: 100%;
+  }
   .text_box_area,
-  .counters_area {
+  .counters_area,
+  .services_area,
+  .your_idea_area,
+  .latest_project_area,
+  .for_mobile_area,
+  .recent_posts_area,
+  .partners_area {
     width: 100%;
   }
   .header-top-line,
