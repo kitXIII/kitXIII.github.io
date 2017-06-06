@@ -1533,7 +1533,4 @@ footer {
   *.hide-in-mobile {
     display: none;
   }
-  .video-modal {
-    width: 85%;
-  }
 }
