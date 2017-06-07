@@ -969,7 +969,7 @@ header {
   margin-right: auto;
 }
 .recent_posts {
-  min-height: 753px;
+  padding-bottom: 80px;
 }
 .recent_posts .posts {
   display: -webkit-box;
