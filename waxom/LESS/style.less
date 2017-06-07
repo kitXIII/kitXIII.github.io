@@ -1,6 +1,5 @@
 @full-width: 1920px;
 @content-width: 1170px;
-@footer-height: 619px;
 @header-height: 1024px;
 @body-color: #fff;
 @footer-bg-color: #191919;
@@ -679,10 +678,10 @@ header {
 
 .video_presentation {
     .full-width;
-    min-height: 495px;
+    //height: 495px;
     background: url('../img/video-bg.png') no-repeat center;
     background-size: cover;
-    padding-top: 210px;
+    padding: 200px 0;
     h2,
     h3,
     h4 {
@@ -697,7 +696,7 @@ header {
         .montserrat(300);
         font-size: 16px;
         line-height: 28px;
-        margin: 0 auto 40px;
+        margin: 0 auto 30px;
         color: @white;
     }
     &-time {
@@ -706,13 +705,12 @@ header {
         .montserrat(300);
         color: @lightbrown;
         font-size: 14px;
-        line-height: 24px;
         margin: 0 auto;
         text-align: center;
     }
     &-btn {
         display: block;
-        margin: 0 auto 44px;
+        margin: 0 auto 40px;
         width: 100px;
         height: 100px;
         border-radius: 50%;
@@ -754,6 +752,7 @@ header {
     display: flex;
     flex-wrap:wrap-reverse;
     align-items: flex-start;
+    justify-content: center;
 
     img {
         width: 423px;
@@ -1011,8 +1010,7 @@ header {
 }
 
 .partners {
-    height: 489px;
-    padding-top: 0;
+     padding: 140px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1032,7 +1030,6 @@ header {
 }
 
 footer {
-    height: @footer-height;
     .full-width;
     margin-left: auto;
     margin-right: auto;
@@ -1419,6 +1416,39 @@ footer {
             margin-left: 30px;
             margin-right: 30px;
         }
+    }
+    .partners{
+        padding: 70px 0;
+        img {
+            width: 150px;
+        }
+    }
+    .counters{
+        &_area{
+            padding: 30px 0;
+        }
+        .sprite{
+            display: none;
+        }
+    }
+    .contacts{
+        justify-content: center;
+        &-column{
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        &-column:last-child{
+            display: none;
+        }
+    }
+    ul.contacts-column-content li:last-child{
+        display: none;
+    }
+    .video_presentation{
+        padding: 100px 0;
+    }
+    .text_box_area .text_box{
+        height:120px;
     }
 }
 
