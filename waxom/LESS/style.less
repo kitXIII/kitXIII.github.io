@@ -864,9 +864,8 @@ header {
     align-items: flex-start;
     justify-content: center;
     img {
-        width: 423px;
-        height: 616px;
         margin-right: 30px;
+        width: 41%;
     }
     &-item:not(:first-child) {
         max-width: 657px;
@@ -882,7 +881,7 @@ header {
         line-height: 28px;
     }
     ul {
-        text-align: left;
+         text-align: left;
         padding-left: 90px;
     }
     li {
@@ -1443,7 +1442,7 @@ footer {
     top: 0;
     left: 0;
     width: 100%;
-    //height: 1000%;
+    height: 100%;
 }
 
 @media only screen and (min-width: 1201px) and (max-width: 1600px) {
@@ -1530,6 +1529,18 @@ footer {
             margin-right: 30px;
         }
     }
+
+    .for_mobile {
+        &-item {
+                & h3{
+                text-align: center;  
+             }
+                & p{
+                    text-align: center; 
+                }            
+            }
+        }
+
     .partners {
         padding: 70px 0;
         img {
@@ -1679,6 +1690,14 @@ footer {
     }
     .for_mobile {
         padding: 40px 0 0;
+        &-item {
+            & h3{
+              text-align: center;  
+            }
+            & p{
+                text-align: center; 
+            }            
+        }
     }
     .partners {
         img {
@@ -1689,7 +1708,7 @@ footer {
         justify-content: center;
     }
     .video-modal{
-        width:90%;
+        width:85%;
     }
 }
 
