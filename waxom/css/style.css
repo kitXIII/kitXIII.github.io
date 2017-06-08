@@ -390,7 +390,7 @@ header {
   margin-left: auto;
   margin-right: auto;
 }
-.services_area .services {
+.services {
   padding-top: 50px;
   padding-bottom: 50px;
 }
@@ -1361,6 +1361,12 @@ footer {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-align-content: space-evenly;
+      -ms-flex-line-pack: space-evenly;
+          align-content: space-evenly;
 }
 .copyrights-part {
   display: -webkit-box;
@@ -1524,7 +1530,7 @@ footer {
   width: 100%;
   height: 100%;
 }
-@media only screen and (max-width: 1600px) {
+@media only screen and (min-width: 1201px) and (max-width: 1600px) {
   .header-slider-left-btn {
     left: 0;
   }
@@ -1533,6 +1539,12 @@ footer {
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .header-slider-left-btn {
+    left: 0;
+  }
+  .header-slider-right-btn {
+    right: 0;
+  }
   .header-top-line {
     width: 100%;
     -webkit-justify-content: space-around;
@@ -1639,8 +1651,8 @@ footer {
     height: 120px;
   }
 }
-/* смарт */
-@media only screen and (max-width: 767px) {
+/* широкий смарт */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
   *.hide-in-mobile {
     display: none;
   }
@@ -1686,6 +1698,9 @@ footer {
         -ms-flex-pack: center;
             justify-content: center;
   }
+  .latest_project-menu li:nth-last-child(2) {
+    display: none;
+  }
   .latest_project-items li {
     margin-left: 20px;
     margin-right: 20px;
@@ -1703,10 +1718,38 @@ footer {
     margin-left: 30px;
     margin-right: 30px;
   }
+  .services,
+  .latest_project,
+  .video_presentation,
+  .recent_posts,
   .partners {
-    padding: 70px 0;
+    padding: 40px 0;
+  }
+  .for_mobile {
+    padding: 40px 0 0;
   }
   .partners img {
-    width: 150px;
+    width: 70%;
+  }
+  .copyrights-inner {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+/* узкий смарт */
+@media only screen and (max-width: 479px) {
+  .latest_project-menu {
+    display: none;
+  }
+  .partners img {
+    width: 70%;
+  }
+  .copyrights-inner {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
