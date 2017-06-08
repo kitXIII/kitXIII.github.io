@@ -242,6 +242,7 @@ header {
 }
 
 .burger-btn-inner{
+    display: block;
   transition: background-color 0.5s ease;
   /* 1 и 3 слои бурнера будут позиционироваться относительно среднего элемента*/
   position: relative;
@@ -1000,7 +1001,7 @@ header {
         }
     }
     .posts-post {
-        max-width: 370px;
+        width: 370px;
         position: relative;
         box-shadow: 0 0 2px 0 @btn-brown-color;
         padding-bottom: 30px;
@@ -1537,7 +1538,10 @@ footer {
              }
                 & p{
                     text-align: center; 
-                }            
+                }
+                & ul {
+                    padding-left:40px
+                }          
             }
         }
 
@@ -1674,6 +1678,9 @@ footer {
         }
     }
     .recent_posts .posts {
+        .posts-post {
+            max-width: 370px;
+        }
         justify-content: center;
         li {
             margin-left: 30px;
@@ -1696,6 +1703,9 @@ footer {
             }
             & p{
                 text-align: center; 
+            }
+            & ul {
+                padding-left:40px
             }            
         }
     }
