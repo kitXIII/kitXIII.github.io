@@ -1591,7 +1591,8 @@ footer {
 .copyrights-part li:first-child {
   padding-left: 0;
 }
-/** стили фона затемнения **/
+/** Модальное окошко с видео **/
+/* стили фона затемнения */
 .overlay {
   top: 0;
   right: 0;
@@ -1619,7 +1620,6 @@ footer {
   top: 0;
   right: 0;
   left: 0;
-  width: 50%;
   z-index: 200;
   /** полная прозрачность изначально */
   opacity: 0;
@@ -1643,7 +1643,7 @@ footer {
 }
 /* активируем при клике */
 .overlay:target + .video-modal {
-  top: 15%;
+  top: 5%;
   visibility: visible;
   opacity: 1;
 }
@@ -1712,7 +1712,6 @@ footer {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
 }
 @media only screen and (min-width: 1201px) and (max-width: 1600px) {
   .header-slider-left-btn {
@@ -1833,6 +1832,9 @@ footer {
   }
   .text_box_area .text_box {
     height: 120px;
+  }
+  .video-modal {
+    width: 90%;
   }
 }
 /*Примесь - общее для медиазапросов менее 768px */
@@ -1971,6 +1973,9 @@ footer {
         -ms-flex-pack: center;
             justify-content: center;
   }
+  .video-modal {
+    width: 90%;
+  }
 }
 /* узкий смарт */
 @media only screen and (max-width: 479px) {
@@ -2106,6 +2111,9 @@ footer {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+  .video-modal {
+    width: 90%;
   }
   /*ОТЛИЧИТЯ ОТ ПРЕДЫДУЩЕГО МЕДИАЗАПРОСА*/
   .latest_project-menu {

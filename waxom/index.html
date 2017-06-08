@@ -237,7 +237,7 @@
                 <div class="overlay" id="video1"></div>
                 <div class="video-modal">
                     <div class="video-content" id="youtube">
-                        <iframe id="player" width="1280" height="720" src="https://www.youtube.com/embed/Rk6_hdRtJOE" frameborder="0" allowfullscreen></iframe>
+                        <iframe id="player" width="1280" height="720" src="https://www.youtube.com/embed/Rk6_hdRtJOE" frameborder="0" ></iframe>
                     </div>
                     <a href="#close" id="stop" title="Закрыть" class="close-btn"></a>
                 </div>
@@ -454,14 +454,14 @@
     </footer>
     <!-- Скрипт выключения видео при закрытии модального окна -->
     <script>
-    var player;
-
-    function onYouTubePlayerAPIReady() {
+        var player;
+        function onYouTubePlayerAPIReady() {
         player = new YT.Player('player');
-    }
-    $('#stop').click(function() {
-        player.stopVideo();
-    })
+        }
+ 
+        $('#stop').click(function(){
+        player.stopVideo()
+        })
     </script>
 </body>
 
