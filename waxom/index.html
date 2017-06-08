@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.youtube.com/player_api"></script>
 </head>
 
@@ -237,7 +237,7 @@
                 <div class="overlay" id="video1"></div>
                 <div class="video-modal">
                     <div class="video-content" id="youtube">
-                        <iframe id="player" width="1280" height="720" src="https://www.youtube.com/embed/Rk6_hdRtJOE" frameborder="0" ></iframe>
+                        <iframe width="854" height="480" src="https://www.youtube.com/embed/Rk6_hdRtJOE" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <a href="#close" id="stop" title="Закрыть" class="close-btn"></a>
                 </div>
@@ -453,8 +453,8 @@
         </section>
     </footer>
     <!-- Скрипт выключения видео при закрытии модального окна -->
-    <script>
-        var player;
+    <script >
+    var player;
         function onYouTubePlayerAPIReady() {
         player = new YT.Player('player');
         }
