@@ -829,13 +829,13 @@ header {
           transform: scale(1.1);
 }
 .latest_project-items figure {
-  width: 370px;
+  max-width: 370px;
 }
 .latest_project-items figure .img-wrap {
-  height: 237px;
   overflow: hidden;
 }
 .latest_project-items figure img {
+  width: 100%;
   -webkit-transition: -webkit-filter 0.3s ease-in-out, -webkit-transform 0.3s ease-in;
   transition: -webkit-filter 0.3s ease-in-out, -webkit-transform 0.3s ease-in;
   -o-transition: filter 0.3s ease-in-out, transform 0.3s ease-in;
@@ -844,9 +844,7 @@ header {
 }
 .latest_project-items figcaption {
   margin: 0 0;
-  padding: 28px 0 0 28px;
-  width: 342px;
-  height: 74px;
+  padding: 28px 0 10px 28px;
   background-color: #fbfaf8;
   -webkit-transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   -o-transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -1174,7 +1172,7 @@ header {
   margin-bottom: 30px;
 }
 .recent_posts .posts-post {
-  width: 370px;
+  max-width: 370px;
   position: relative;
   -webkit-box-shadow: 0 0 2px 0 #998675;
           box-shadow: 0 0 2px 0 #998675;
@@ -1184,11 +1182,11 @@ header {
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 .recent_posts .posts-post .img-wrap {
-  height: 220px;
   overflow: hidden;
   position: relative;
 }
 .recent_posts .posts-post img {
+  width: 100%;
   -webkit-transition: -webkit-filter 0.3s ease-in-out, -webkit-transform 0.3s ease-in;
   transition: -webkit-filter 0.3s ease-in-out, -webkit-transform 0.3s ease-in;
   -o-transition: filter 0.3s ease-in-out, transform 0.3s ease-in;
@@ -1837,6 +1835,7 @@ footer {
     height: 120px;
   }
 }
+/*Примесь - общее для медиазапросов менее 768px */
 /* широкий смарт */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
   /*header burger menu styles BEGIN*/
@@ -1895,9 +1894,6 @@ footer {
   }
   .header-top-menu a {
     font-size: 1.5em;
-  }
-  .header-top-menu a:active {
-    background-color: rgba(0, 0, 0, 0.2);
   }
   /*header burger menu styles END*/
   *.hide-in-mobile {
@@ -1978,8 +1974,129 @@ footer {
 }
 /* узкий смарт */
 @media only screen and (max-width: 479px) {
-  .latest_project-menu {
+  /*header burger menu styles BEGIN*/
+  .burger-btn {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-self: flex-end;
+        -ms-flex-item-align: end;
+            align-self: flex-end;
+  }
+  .header-top-line {
+    min-height: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+  .header-top-line nav {
+    width: 100%;
+  }
+  .header-top-line .logo-block {
+    position: absolute;
+    top: 20px;
+    left: 0;
+  }
+  .header-top-line .header-top-menu-wrap {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+  .header-top-menu {
+    width: 100%;
     display: none;
+    margin: 5px auto 0;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+  .header-top-menu li {
+    width: 100%;
+    margin: 0 2px;
+    border-radius: 3px;
+    border: 1px solid #555555;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .header-top-menu a {
+    font-size: 1.5em;
+  }
+  /*header burger menu styles END*/
+  *.hide-in-mobile {
+    display: none;
+  }
+  header,
+  footer,
+  .video_presentation {
+    width: 100%;
+  }
+  header {
+    background-size: auto auto;
+    background-position: top;
+  }
+  .text_box_area,
+  .services_area,
+  .latest_project_area,
+  .for_mobile_area,
+  .recent_posts_area,
+  .partners_area {
+    width: 100%;
+  }
+  .header-top-line,
+  .text_box,
+  .copyrights-inner,
+  .std-section {
+    width: 96%;
+  }
+  .text_box_area .text_box {
+    height: 80px;
+  }
+  .latest_project-items,
+  .latest_project-menu {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .latest_project-menu li:nth-last-child(2) {
+    display: none;
+  }
+  .latest_project-items li {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .latest_project-items li:not(:nth-child(-n+4)) {
+    display: none;
+  }
+  .recent_posts .posts {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .recent_posts .posts li {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  .services,
+  .latest_project,
+  .video_presentation,
+  .recent_posts,
+  .partners {
+    padding: 40px 0;
+  }
+  .for_mobile {
+    padding: 40px 0 0;
   }
   .partners img {
     width: 70%;
@@ -1989,5 +2106,24 @@ footer {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+  /*ОТЛИЧИТЯ ОТ ПРЕДЫДУЩЕГО МЕДИАЗАПРОСА*/
+  .latest_project-menu {
+    display: none;
+  }
+  .latest_project-items li:hover figure img {
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+  }
+  .recent_posts .posts-post:hover img {
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+  }
+  .recent_posts .posts li,
+  .latest_project .latest_project-items li {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }

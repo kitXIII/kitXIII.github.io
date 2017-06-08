@@ -731,20 +731,22 @@ header {
         }
     }
     figure {
-        width: 370px;
+        max-width:370px;        
         .img-wrap {
-            height: 237px;
+            //width: 370px;
+            //height: 237px;
             overflow: hidden;
         }
         img {
+            width:100%;
             transition: filter 0.3s ease-in-out, transform 0.3s ease-in;
         }
     }
     figcaption {
         margin: 0 0;
-        padding: 28px 0 0 28px;
-        width: 342px;
-        height: 74px;
+        padding: 28px 0 10px 28px;
+        //width: 342px;
+        //height: 74px;
         background-color: @grey-section-color;
         transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
         position: relative;
@@ -999,17 +1001,18 @@ header {
         }
     }
     .posts-post {
-        width: 370px;
+        max-width: 370px;
         position: relative;
         box-shadow: 0 0 2px 0 @btn-brown-color;
         padding-bottom: 30px;
         transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
         .img-wrap {
-            height: 220px;
+            //height: 220px;
             overflow: hidden;
             position: relative;
         }
         img {
+            width: 100%;
             transition: filter 0.3s ease-in-out, transform 0.3s ease-in;
         }
         h6 {
@@ -1571,10 +1574,9 @@ footer {
         height: 120px;
     }
 }
-
-/* широкий смарт */
-@media only screen and (min-width: 480px) and (max-width: 767px) {
-    /*header burger menu styles BEGIN*/
+/*Примесь - общее для медиазапросов менее 768px */
+.mixin_for_media_less_then_768px(){
+        /*header burger menu styles BEGIN*/
   .burger-btn{
     display: flex;
     align-self:flex-end;   
@@ -1613,9 +1615,6 @@ footer {
        background-color: @video-btn-color;
     }
      .header-top-menu a{
-        &:active{
-            background-color: @video-btn-color;
-        }
         font-size: 1.5em;
      }
  /*header burger menu styles END*/
@@ -1623,9 +1622,7 @@ footer {
     *.hide-in-mobile {
         display: none;
     }
-    .header-top-menu {
-        
-    }
+    
     header,
     footer,
     .video_presentation {
@@ -1699,19 +1696,34 @@ footer {
     }
 }
 
+/* широкий смарт */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .mixin_for_media_less_then_768px;
+}
 
 /* узкий смарт */
-
 @media only screen and (max-width: 479px) {
+   .mixin_for_media_less_then_768px;
+/*ОТЛИЧИТЯ ОТ ПРЕДЫДУЩЕГО МЕДИАЗАПРОСА*/
     .latest_project-menu {
         display: none;
     }
-    .partners {
-        img {
-            width: 70%;
+    .latest_project-items li:hover{
+        figure{
+            img{
+                transform:none;
+            }
         }
     }
-    .copyrights-inner {
-        justify-content: center;
+    .recent_posts .posts-post:hover{
+        img{
+             transform:none;
+        }
+    }
+    .recent_posts .posts li,
+    .latest_project .latest_project-items li {
+        margin-left: 10px;
+        margin-right: 10px;
     }
 }
+ 
