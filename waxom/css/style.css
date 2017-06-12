@@ -1958,11 +1958,16 @@ footer {
             justify-content: center;
   }
   .recent_posts .posts .posts-post {
+    max-width: 370px;
     width: auto;
   }
   .recent_posts .posts li {
     margin-left: 30px;
     margin-right: 30px;
+  }
+  .services-menu li a {
+    max-width: 262px;
+    width: auto;
   }
   .services,
   .latest_project,
@@ -2109,11 +2114,16 @@ footer {
             justify-content: center;
   }
   .recent_posts .posts .posts-post {
+    max-width: 370px;
     width: auto;
   }
   .recent_posts .posts li {
     margin-left: 30px;
     margin-right: 30px;
+  }
+  .services-menu li a {
+    max-width: 262px;
+    width: auto;
   }
   .services,
   .latest_project,
