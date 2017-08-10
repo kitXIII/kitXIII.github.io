@@ -63,7 +63,7 @@
 
 .control-btn {
     width: 50px;   
-    border-radius: 50%;
+    border-radius: 50%;    
     position: relative;
 }
 
@@ -143,6 +143,34 @@
     left: 0px;
     z-index: 5;
     background-color: #000;
+}
+
+.snake-unit-tail::after{
+    border-bottom-right-radius:70% 100%;
+    border-bottom-left-radius: 70% 100%;    
+}
+
+.snake-unit-head::after{
+    border-bottom-right-radius:70% 100%;
+    border-bottom-left-radius: 70% 100%;    
+}
+
+/* direction-up как таковой не нужен но для читаемости
+и последующей совместимости оставлен*/
+.snake-unit-direction-up{
+    transform: rotate(0deg);
+}
+
+.snake-unit-direction-right{
+    transform: rotate(90deg);
+}
+
+.snake-unit-direction-left{
+    transform: rotate(-90deg);
+}
+
+.snake-unit-direction-down{
+    transform: rotate(180deg);
 }
 
 .food-unit::after {
