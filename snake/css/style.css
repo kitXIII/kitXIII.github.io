@@ -115,7 +115,7 @@
     top: 0;
     left: 0;
     bottom: 0;
-    right: 0; /
+    right: 0; 
     /*field row settings*/
     display: flex;
     flex-direction: column;
@@ -145,14 +145,14 @@
     background-color: #000;
 }
 
-.snake-unit-tail::after{
-    border-bottom-right-radius:70% 100%;
-    border-bottom-left-radius: 70% 100%;    
+.snake-unit-head::after{
+    border-top-right-radius:35% 100%;
+    border-top-left-radius: 35% 100%;    
 }
 
-.snake-unit-head::after{
-    border-bottom-right-radius:70% 100%;
-    border-bottom-left-radius: 70% 100%;    
+.snake-unit-tail::after{
+    border-bottom-right-radius:50% 100%;
+    border-bottom-left-radius: 50% 100%;    
 }
 
 /* direction-up как таковой не нужен но для читаемости
@@ -171,6 +171,14 @@
 
 .snake-unit-direction-down{
     transform: rotate(180deg);
+}
+
+.snake-unit-turn-right::after{
+    border-top-left-radius: 100%;
+}
+
+.snake-unit-turn-left::after{
+    border-top-right-radius: 100%;
 }
 
 .food-unit::after {

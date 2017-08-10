@@ -3,6 +3,7 @@ var GAME_CLASSES = [
   'food-unit',
   'barrier-unit',
   'snake-unit-tail',
+  'snake-unit-head',
   'snake-unit-direction-right',
   'snake-unit-direction-left',
   'snake-unit-direction-down',
@@ -48,10 +49,49 @@ const makeSnakeUnit = function(coordX, coordY) {
     this.direction = direction;
     this.classes[0] = 'snake-unit';
     this.setTail = function() {
-      var dirClass = 'snake-unit-direction-' + this.direction;
+      this.unSetRounding();
       this.classes.push('snake-unit-tail');
-      this.classes.push(dirClass);
+      this.classes.push('snake-unit-direction-' + this.direction);
       this.draw();
+    }
+    this.setHead = function() {
+      this.classes.push('snake-unit-head');
+      this.classes.push('snake-unit-direction-' + this.direction);
+      this.draw();
+    }
+    this.unSetHead = function() {
+      for (var i = this.classes.length - 1; i >= 0; i-- ) {
+        if ((this.classes[i] == 'snake-unit-head') || (~this.classes[i].indexOf('snake-unit-direction'))) {
+          this.unit.classList.remove(this.classes[i]);
+          this.classes.splice(i, 1);
+        }        
+      }     
+    }
+    this.setRounding = function(newDirection) {
+      if (this.direction != newDirection){
+        if ((this.direction == 'up' && newDirection == 'left') ||
+            (this.direction == 'right' && newDirection == 'up') ||
+            (this.direction == 'down' && newDirection == 'right') ||
+            (this.direction == 'left' && newDirection == 'down')) {
+              this.classes.push('snake-unit-turn-left');
+        } else if (
+            (this.direction == 'up' && newDirection == 'right') ||
+            (this.direction == 'right' && newDirection == 'down') ||
+            (this.direction == 'down' && newDirection == 'left') ||
+            (this.direction == 'left' && newDirection == 'up')) {
+              this.classes.push('snake-unit-turn-right');
+        }
+        this.classes.push('snake-unit-direction-' + this.direction);
+        this.draw();
+      }
+    }
+    this.unSetRounding = function() {
+      for (var i = this.classes.length - 1; i >= 0; i-- ) {
+        if ((~this.classes[i].indexOf('snake-unit-turn')) || (~this.classes[i].indexOf('snake-unit-direction'))) {
+          this.unit.classList.remove(this.classes[i]);
+          this.classes.splice(i, 1);
+        }        
+      }
     }
 }
 // задаем наследование,
@@ -125,6 +165,7 @@ function snakeRender() {
   var coord_y = Math.floor(FIELD_SIZE_Y / 2);
   var snake_head = new makeSnakeUnit(coord_x, coord_y);
   snake_head.draw();
+  snake_head.setHead();
   var snake_tail = new makeSnakeUnit(coord_x + 1, coord_y);
   snake_tail.draw();
   snake_tail.setTail();
@@ -165,6 +206,9 @@ function snakeMove() {
   if (!isSnakeXY(coord_x, coord_y) && !isBarrierXY(coord_x, coord_y)) {
     var new_unit = new makeSnakeUnit(coord_x, coord_y);
     new_unit.draw();
+    new_unit.setHead();
+    snake[snake.length - 1].unSetHead();
+    snake[snake.length - 1].setRounding(new_unit.direction);
     snake.push(new_unit); 
     
     if (!ateFood(new_unit)) {
