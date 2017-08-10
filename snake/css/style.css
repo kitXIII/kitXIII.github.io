@@ -1,19 +1,17 @@
 * {
     margin: 0;
     padding: 0;
-    //overflow: hidden;
 }
 
 .container {
     height: 100vh;
-
     margin: 0 auto;
     width: 300px;
-    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: roboto;
 }
 
 .container>* {
@@ -22,7 +20,8 @@
 
 .score {
     color: green;
-    font-size: 2em;
+    font-size: 1.8em;
+    font-weight: bold;
 }
 
 #snake-field {
@@ -51,20 +50,51 @@
 .btn {
     background: green;
     color: white;
-    font-size: 2em;
+    font-size: 1.8em;
     line-height: 1.5em;
     text-align: center;
     cursor: pointer;
     height: 50px;
 }
 
+.btn:active{
+    background-color: darkgreen;
+}
+
 .control-btn {
     width: 50px;   
     border-radius: 50%;
+    position: relative;
 }
 
-.control-btn:active{
-    background-color: #f00;
+.control-btn::before {
+    content: "";
+    position: absolute;    
+    border: 15px solid transparent;
+}
+
+#btn-up::before{
+    bottom: 40%;
+    left: 20%;
+    border-bottom: 15px  solid #fff;
+}
+
+#btn-down::before{
+    top: 40%;
+    left: 20%;
+    border-top: 15px  solid #fff;
+}
+
+#btn-left::before{
+    right: 40%;
+    top: 20%;
+    border-right: 15px  solid #fff;
+}
+
+#btn-right::before{
+    left: 40%;
+    top: 20%;
+    border-left: 15px  solid #fff;
 }
 
 .control-btn-lrwrapper {
@@ -76,6 +106,7 @@
 #btn-start-stop {
     width: 100%;
     margin-top: 10px;
+    font-weight: bold;
 }
 
 .game-field {
@@ -97,14 +128,21 @@
 
 .game-field-cell {
     width: 5%;
-    background-color: #000;
-    border: 1px dotted #fff;
+    //background-color: #ee0;
+    background-color: rgb(134, 249, 120);
+    //border: 1px dotted #fff;
     position: relative;
 }
 
-.snake-unit {
-    background-color: #fff;
-    border: 1px dotted #000;
+.snake-unit::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
+    background-color: #000;
 }
 
 .food-unit::after {
@@ -116,11 +154,19 @@
     left: 0px;
     z-index: 5;
     background-color: #f00;
-    border-radius: 40%;
+    border-radius: 50%;
 }
 
-.barrier-unit {
-    background-color: #bbb;
+.barrier-unit::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;  
+    z-index: 5;
+    background-color: #aaa;
+    border-radius: 30%;
 }
 
 .show-alert {
@@ -133,6 +179,7 @@
     top: 30%;
     left: 30%;
     font-size: 3em;
-    color: #0f0;
+    color: green;
     font-weight: bold;
+    z-index: 10;
 }

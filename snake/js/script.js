@@ -49,7 +49,7 @@ makeFoodUnit.prototype.constructor = makeFoodUnit;
 // конструктор модуля препятствий
 const makeBarrierUnit = function(coordX, coordY) {
   makeUnit.call(this, coordX, coordY);
-  this.classStr = 'barrier-unit';  
+  this.classStr = 'barrier-unit'; 
 }
 makeBarrierUnit.prototype = Object.create(makeUnit.prototype);
 makeBarrierUnit.prototype.constructor = makeBarrierUnit;
@@ -217,7 +217,7 @@ function createFood() {
   while (!foodCreated) {
     food_x = Math.floor(Math.random() * FIELD_SIZE_X);
     food_y = Math.floor(Math.random() * FIELD_SIZE_Y);
-    if (!isSnakeXY(food_x, food_y)) {
+    if (!isSnakeXY(food_x, food_y) && !isBarrierXY(food_x, food_y)) {
       if (!foodExists) {
         food = new makeFoodUnit(food_x, food_y);
         food.draw();
