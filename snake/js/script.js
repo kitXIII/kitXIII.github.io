@@ -8,6 +8,8 @@ var GAME_CLASSES = [
   'snake-unit-direction-left',
   'snake-unit-direction-down',
   'snake-unit-direction-up',
+  '.snake-unit-turn-right',
+  '.snake-unit-turn-left'
   ];
 var FIELD_SIZE_X = 20;
 var FIELD_SIZE_Y = 20;
