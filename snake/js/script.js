@@ -8,8 +8,8 @@ var GAME_CLASSES = [
   'snake-unit-direction-left',
   'snake-unit-direction-down',
   'snake-unit-direction-up',
-  '.snake-unit-turn-right',
-  '.snake-unit-turn-left'
+  'snake-unit-turn-right',
+  'snake-unit-turn-left'
   ];
 var FIELD_SIZE_X = 20;
 var FIELD_SIZE_Y = 20;
@@ -26,6 +26,7 @@ var food = {
   y: -1,
 };
 var barriers;
+
 
 // базовый конструктор абстрактного модуля 
 const makeUnit = function(coordX, coordY) {
@@ -46,9 +47,9 @@ const makeUnit = function(coordX, coordY) {
 }
 
 // конструктор модуля змейки
-const makeSnakeUnit = function(coordX, coordY) {
+const makeSnakeUnit = function(coordX, coordY, setDirection) {
     makeUnit.call(this, coordX, coordY); // вызов родительского конструктора для данного объекта с прараметрами
-    this.direction = direction;
+    this.direction = setDirection;
     this.classes[0] = 'snake-unit';
     this.setTail = function() {
       this.unSetRounding();
@@ -116,6 +117,23 @@ const makeBarrierUnit = function(coordX, coordY) {
 makeBarrierUnit.prototype = Object.create(makeUnit.prototype);
 makeBarrierUnit.prototype.constructor = makeBarrierUnit;
 
+// конструктор собственно змейки
+const makeSnake = function() {
+  this.direction = 'up';
+  var coordX = Math.floor(FIELD_SIZE_X / 2);
+  var coordY = Math.floor(FIELD_SIZE_Y / 2);
+  var snake_head = new makeSnakeUnit(coordX, coordY, this.direction);
+  snake_head.setHead();
+  var snake_tail = new makeSnakeUnit(coordX + 1, coordY, this.direction);
+  snake_tail.setTail();
+  this.push(snake_tail);
+  this.push(snake_head); 
+}
+makeSnake.prototype = Object.create(Array.prototype);
+makeSnake.prototype.constructor = makeSnake;
+
+//var ssnake = new makeSnake(); 
+
 function prepareGameField() {
   var gameField = document.createElement("div");
   gameField.setAttribute("class", "game-field");
@@ -129,20 +147,21 @@ function prepareGameField() {
     }
     gameField.appendChild(row);
   }
-   document.getElementById("snake-field").appendChild(gameField);
+   document.getElementById("snake-field").appendChild(gameField);   
  }
 
 function startGame() {
   if (!gameStarted) {
     // для реализации перезапуска: задаем начальные/сбрасываем значения
-    snake = [];
+    
     barriers = [];
     direction = "up";
     score = 0;
     //очистка классов ячеек (необходимо в случае перезапуска)
     flushCellClasses();
     document.getElementById("snake-field").classList.remove("show-alert");
-    snakeRender();
+    //snakeRender();
+    snake = new makeSnake();
     document.getElementById("score-indic").innerHTML = score; // score = 0
     document.getElementById("btn-start-stop").innerHTML = "Закончить";
     gameStarted = true;
@@ -161,25 +180,26 @@ function finishGame() {
   clearInterval(barrier_timer);
   document.getElementById("btn-start-stop").innerHTML = "Начать";
 }
-
+/*
 function snakeRender() {
   var coord_x = Math.floor(FIELD_SIZE_X / 2);
   var coord_y = Math.floor(FIELD_SIZE_Y / 2);
   var snake_head = new makeSnakeUnit(coord_x, coord_y);
-  snake_head.draw();
+  //snake_head.draw();
   snake_head.setHead();
   var snake_tail = new makeSnakeUnit(coord_x + 1, coord_y);
-  snake_tail.draw();
+  //snake_tail.draw();
   snake_tail.setTail();
   snake.push(snake_tail);
   snake.push(snake_head);
 }
+*/
 
 function snakeMove() {
   var coord_x = snake[snake.length - 1].x;
   var coord_y = snake[snake.length - 1].y;
 
-  switch (direction) {
+  switch (snake.direction) {
     case "up":
       coord_x--;
       if (coord_x < 0) {
@@ -206,7 +226,7 @@ function snakeMove() {
   }
 
   if (!isSnakeXY(coord_x, coord_y) && !isBarrierXY(coord_x, coord_y)) {
-    var new_unit = new makeSnakeUnit(coord_x, coord_y);
+    var new_unit = new makeSnakeUnit(coord_x, coord_y, snake.direction);
     new_unit.draw();
     new_unit.setHead();
     snake[snake.length - 1].unSetHead();
@@ -251,16 +271,16 @@ function isBarrierXY(_x, _y) {
 function changeDirection(e) {
   switch (e.keyCode) {
     case 37:
-      direction = "left";
+      snake.direction = "left";
       break;
     case 38:
-      direction = "up";
+      snake.direction = "up";
       break;
     case 39:
-      direction = "right";
+      snake.direction = "right";
       break;
     case 40:
-      direction = "down";
+      snake.direction = "down";
       break;
   }
 }
@@ -268,16 +288,16 @@ function changeDirection(e) {
 function changeDirection2() {
   switch (this.getAttribute('id')) {
     case 'btn-left':
-      direction = 'left';
+      snake.direction = 'left';
       break;
     case 'btn-up':
-      direction = 'up';
+      snake.direction = 'up';
       break;
     case 'btn-right':
-      direction = 'right';
+      snake.direction = 'right';
       break;
     case 'btn-down':
-      direction = 'down';
+      snake.direction = 'down';
       break;
   }
 }

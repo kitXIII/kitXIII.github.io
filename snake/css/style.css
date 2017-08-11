@@ -7,10 +7,19 @@
     height: 100vh;
     margin: 0 auto;
     width: 300px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     font-family: roboto;
 }
 
@@ -42,9 +51,16 @@
 
 .control-btns {
     width: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .btn {
@@ -99,8 +115,12 @@
 
 .control-btn-lrwrapper {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 #btn-start-stop {
@@ -117,20 +137,25 @@
     bottom: 0;
     right: 0; 
     /*field row settings*/
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 .game-field-row {
     height: 5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
 .game-field-cell {
     width: 5%;
-    //background-color: #ee0;
     background-color: rgb(134, 249, 120);
-    //border: 1px dotted #fff;
     position: relative;
 }
 
@@ -158,19 +183,23 @@
 /* direction-up как таковой не нужен но для читаемости
 и последующей совместимости оставлен*/
 .snake-unit-direction-up{
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
 }
 
 .snake-unit-direction-right{
-    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
 }
 
 .snake-unit-direction-left{
-    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
 }
 
 .snake-unit-direction-down{
-    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
 }
 
 .snake-unit-turn-right::after{
