@@ -22,8 +22,8 @@ body{
     align-items: center;
     /* for change in mediaquery */
     justify-content: space-around;
-    flex-wrap: wrap;
-    align-content: center;
+    //flex-wrap: wrap;
+    //align-content: center;
 }
 
 .wrapper{
@@ -303,7 +303,7 @@ body{
         width: 340px;
         justify-content: center;      
     }
-}d
+}
 /***********************width > 420 height > 603*************/
 @media screen and (min-width: 421px) and (min-height: 604px){
     .container {
