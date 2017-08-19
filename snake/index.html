@@ -11,20 +11,43 @@
 
 <body>
     <div class="container">
-        <div class="score">
-            <span>Score:</span>
-            <span id="score-indic"></span>
-        </div>
-        <div id="snake-field" class=""></div>
-        <div class="control-btns">
-            <div class="btn control-btn" id="btn-up"></div>
-            <div class="control-btn-lrwrapper">
-                <div class="btn control-btn" id="btn-left"></div>
-                <div class="btn control-btn" id="btn-right"></div>
+        <div class="wrapper">
+            <div class="score">
+                <span>Score:</span>
+                <span id="score-indic"></span>
             </div>
-            <div class="btn control-btn" id="btn-down"></div>
+            <div id="snake-field" class=""></div>
         </div>
-        <div class="btn" id="btn-start-stop">Начать</div>    
+        <div class="control-btns">
+            <div class="btn-row">
+                <div class="btn-cell"></div>
+                <div class="btn-cell"></div>
+                <div class="btn-cell btn control-btn" id="btn-up"></div>
+                <div class="btn-cell"></div>
+                <div class="btn-cell"></div>
+            </div>
+            <div class="btn-row">
+                <div class="btn-cell"></div>
+                <div class="btn-cell btn control-btn" id="btn-left"></div>
+                <div class="btn-cell"></div>
+                <div class="btn-cell btn control-btn" id="btn-right"></div>
+                <div class="btn-cell"></div>
+            </div>
+            <div class="btn-row">
+                <div class="btn-cell"></div>
+                <div class="btn-cell"></div>
+                <div class="btn-cell btn control-btn" id="btn-down"></div>
+                <div class="btn-cell"></div>
+                <div class="btn-cell"></div>
+            </div>
+            <div class="btn-row">
+                <div class="btn-cell"></div>
+                <div class="btn-cell"></div>
+                <div class="btn-cell"></div>
+                <div class="btn-cell"></div>
+                <div class="btn-cell btn btn-start" id="btn-start-stop"></div>
+            </div>
+        </div>
     </div>
 </body>
 

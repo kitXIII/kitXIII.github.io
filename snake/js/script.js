@@ -1,4 +1,4 @@
-var GAME_CLASSES = [
+const GAME_CLASSES = [
   'snake-unit',
   'food-unit',
   'barrier-unit',
@@ -11,22 +11,22 @@ var GAME_CLASSES = [
   'snake-unit-turn-right',
   'snake-unit-turn-left'
   ];
-var FIELD_SIZE_X = 20;
-var FIELD_SIZE_Y = 20;
-var SNAKE_SPEED = 300;
-var BARRIER_NUM = 5;
+const FIELD_SIZE_X = 20;
+const FIELD_SIZE_Y = 20;
+const SNAKE_SPEED = 300;
+const BARRIER_NUM = 5;
+const BARRIER_FREQUENCY = 3000;
 var gameStarted = false;
 var snake;
-var direction;
 var snake_timer;
+var barriers;
+var barrier_timer;
 var score;
 var foodExists;
 var food = {
   x: -1,
   y: -1,
 };
-var barriers;
-
 
 // базовый конструктор абстрактного модуля 
 const makeUnit = function(coordX, coordY) {
@@ -34,15 +34,22 @@ const makeUnit = function(coordX, coordY) {
     this.y = coordY;
     this.classes = [];
     this.unit = document.getElementsByClassName("cell-" + this.x + "-" + this.y)[0];
+    
     this.draw = function() {
       for (var item in this.classes){
         this.unit.classList.add(this.classes[item]);
       }       
     }
+     
      this.erase = function() {
       for (var item in this.classes){
         this.unit.classList.remove(this.classes[item]);
       }
+    }
+
+    this.isIt = function(coordX, coordY) {
+      if (this.x === coordX && this.y === coordY) return true;
+      return false;
     }
 }
 
@@ -51,17 +58,13 @@ const makeSnakeUnit = function(coordX, coordY, setDirection) {
     makeUnit.call(this, coordX, coordY); // вызов родительского конструктора для данного объекта с прараметрами
     this.direction = setDirection;
     this.classes[0] = 'snake-unit';
-    this.setTail = function() {
-      this.unSetRounding();
-      this.classes.push('snake-unit-tail');
-      this.classes.push('snake-unit-direction-' + this.direction);
-      this.draw();
-    }
-    this.setHead = function() {
+    
+    this.setNDrawHead = function() {
       this.classes.push('snake-unit-head');
       this.classes.push('snake-unit-direction-' + this.direction);
       this.draw();
     }
+
     this.unSetHead = function() {
       for (var i = this.classes.length - 1; i >= 0; i-- ) {
         if ((this.classes[i] == 'snake-unit-head') || (~this.classes[i].indexOf('snake-unit-direction'))) {
@@ -70,24 +73,33 @@ const makeSnakeUnit = function(coordX, coordY, setDirection) {
         }        
       }     
     }
-    this.setRounding = function(newDirection) {
-      if (this.direction != newDirection){
-        if ((this.direction == 'up' && newDirection == 'left') ||
-            (this.direction == 'right' && newDirection == 'up') ||
-            (this.direction == 'down' && newDirection == 'right') ||
-            (this.direction == 'left' && newDirection == 'down')) {
+
+    this.setNDrawTail = function() {
+      this.unSetRounding();
+      this.classes.push('snake-unit-tail');
+      this.classes.push('snake-unit-direction-' + this.direction);
+      this.draw();
+    }
+
+    this.setNDrawRounding = function(nextUnitDirection) {
+      if (this.direction != nextUnitDirection){
+        if ((this.direction == 'up' && nextUnitDirection == 'left') ||
+            (this.direction == 'right' && nextUnitDirection == 'up') ||
+            (this.direction == 'down' && nextUnitDirection == 'right') ||
+            (this.direction == 'left' && nextUnitDirection == 'down')) {
               this.classes.push('snake-unit-turn-left');
         } else if (
-            (this.direction == 'up' && newDirection == 'right') ||
-            (this.direction == 'right' && newDirection == 'down') ||
-            (this.direction == 'down' && newDirection == 'left') ||
-            (this.direction == 'left' && newDirection == 'up')) {
+            (this.direction == 'up' && nextUnitDirection == 'right') ||
+            (this.direction == 'right' && nextUnitDirection == 'down') ||
+            (this.direction == 'down' && nextUnitDirection == 'left') ||
+            (this.direction == 'left' && nextUnitDirection == 'up')) {
               this.classes.push('snake-unit-turn-right');
         }
         this.classes.push('snake-unit-direction-' + this.direction);
         this.draw();
       }
     }
+
     this.unSetRounding = function() {
       for (var i = this.classes.length - 1; i >= 0; i-- ) {
         if ((~this.classes[i].indexOf('snake-unit-turn')) || (~this.classes[i].indexOf('snake-unit-direction'))) {
@@ -120,19 +132,76 @@ makeBarrierUnit.prototype.constructor = makeBarrierUnit;
 // конструктор собственно змейки
 const makeSnake = function() {
   this.direction = 'up';
-  var coordX = Math.floor(FIELD_SIZE_X / 2);
-  var coordY = Math.floor(FIELD_SIZE_Y / 2);
-  var snake_head = new makeSnakeUnit(coordX, coordY, this.direction);
-  snake_head.setHead();
-  var snake_tail = new makeSnakeUnit(coordX + 1, coordY, this.direction);
-  snake_tail.setTail();
+  this.x = Math.floor(FIELD_SIZE_X / 2);
+  this.y = Math.floor(FIELD_SIZE_Y / 2);
+  var snake_head = new makeSnakeUnit(this.x, this.y, this.direction);
+  snake_head.setNDrawHead();
+  var snake_tail = new makeSnakeUnit(this.x + 1, this.y, this.direction);
+  snake_tail.setNDrawTail();
   this.push(snake_tail);
-  this.push(snake_head); 
+  this.push(snake_head);
+  
+  // Метод move() задан через = () =>
+  // чтобы всегда вызываться в контексте объекта змейки 
+  this.move = () =>{
+    var fixDirection = this.direction;
+    switch (fixDirection) {
+      case 'up':
+        this.x--;
+        if (this.x < 0) {
+          this.x += FIELD_SIZE_X;
+        }
+        break;
+      case 'down':
+        this.x++;
+        if (this.x >= FIELD_SIZE_X) {
+          this.x -= FIELD_SIZE_X;
+        }
+        break;
+      case 'left':
+        this.y--;
+        if (this.y < 0) {
+          this.y += FIELD_SIZE_Y;
+        }
+        break;
+      case 'right':
+        this.y++;
+        if (this.y >= FIELD_SIZE_Y) {
+          this.y -= FIELD_SIZE_Y;
+        }
+    }
+
+    if (!this.isIt(this.x, this.y) && !isBarrierXY(this.x, this.y)) {
+      var new_unit = new makeSnakeUnit(this.x, this.y, fixDirection);
+      new_unit.setNDrawHead();
+      this[this.length - 1].unSetHead();
+      this[this.length - 1].setNDrawRounding(new_unit.direction);
+      this.push(new_unit); 
+    
+      if (!ateFood(new_unit)) {
+        var tail_remove = this.splice(0, 1)[0];
+        tail_remove.erase();
+        this[0].direction = this[1].direction;
+        this[0].setNDrawTail();
+      }    
+
+    } else { 
+    document.getElementById("snake-field").classList.add("show-alert"); 
+      finishGame();
+    }  
+  }
+  // Конец метода move
+
+  this.isIt = function(coordX, coordY) {
+    for (var i = this.length - 1; i >= 0; i--) {
+      if (this[i].isIt(coordX, coordY)) return true;
+    }
+    return false;
+  }
+
 }
 makeSnake.prototype = Object.create(Array.prototype);
 makeSnake.prototype.constructor = makeSnake;
-
-//var ssnake = new makeSnake(); 
 
 function prepareGameField() {
   var gameField = document.createElement("div");
@@ -148,24 +217,21 @@ function prepareGameField() {
     gameField.appendChild(row);
   }
    document.getElementById("snake-field").appendChild(gameField);   
- }
+}
 
 function startGame() {
   if (!gameStarted) {
     // для реализации перезапуска: задаем начальные/сбрасываем значения
-    
-    barriers = [];
-    direction = "up";
+    barriers = [];  
     score = 0;
     //очистка классов ячеек (необходимо в случае перезапуска)
     flushCellClasses();
     document.getElementById("snake-field").classList.remove("show-alert");
-    //snakeRender();
     snake = new makeSnake();
     document.getElementById("score-indic").innerHTML = score; // score = 0
-    document.getElementById("btn-start-stop").innerHTML = "Закончить";
+    document.getElementById("btn-start-stop").classList.toggle('btn-stop');
     gameStarted = true;
-    snake_timer = setInterval(snakeMove, SNAKE_SPEED);
+    snake_timer = setInterval(snake.move, SNAKE_SPEED);
     barrier_timer = setInterval(createBarrier, 3000);
     setTimeout(createFood, 5000);
 
@@ -177,73 +243,8 @@ function startGame() {
 function finishGame() {
   gameStarted = false;
   clearInterval(snake_timer);
-  clearInterval(barrier_timer);
-  document.getElementById("btn-start-stop").innerHTML = "Начать";
-}
-/*
-function snakeRender() {
-  var coord_x = Math.floor(FIELD_SIZE_X / 2);
-  var coord_y = Math.floor(FIELD_SIZE_Y / 2);
-  var snake_head = new makeSnakeUnit(coord_x, coord_y);
-  //snake_head.draw();
-  snake_head.setHead();
-  var snake_tail = new makeSnakeUnit(coord_x + 1, coord_y);
-  //snake_tail.draw();
-  snake_tail.setTail();
-  snake.push(snake_tail);
-  snake.push(snake_head);
-}
-*/
-
-function snakeMove() {
-  var coord_x = snake[snake.length - 1].x;
-  var coord_y = snake[snake.length - 1].y;
-
-  switch (snake.direction) {
-    case "up":
-      coord_x--;
-      if (coord_x < 0) {
-        coord_x += FIELD_SIZE_X;
-      }
-      break;
-    case "down":
-      coord_x++;
-      if (coord_x >= FIELD_SIZE_X) {
-        coord_x -= FIELD_SIZE_X;
-      }
-      break;
-    case "left":
-      coord_y--;
-      if (coord_y < 0) {
-        coord_y += FIELD_SIZE_Y;
-      }
-      break;
-    case "right":
-      coord_y++;
-      if (coord_y >= FIELD_SIZE_Y) {
-        coord_y -= FIELD_SIZE_Y;
-      }
-  }
-
-  if (!isSnakeXY(coord_x, coord_y) && !isBarrierXY(coord_x, coord_y)) {
-    var new_unit = new makeSnakeUnit(coord_x, coord_y, snake.direction);
-    new_unit.draw();
-    new_unit.setHead();
-    snake[snake.length - 1].unSetHead();
-    snake[snake.length - 1].setRounding(new_unit.direction);
-    snake.push(new_unit); 
-    
-    if (!ateFood(new_unit)) {
-      var tail_remove = snake.splice(0, 1)[0];
-      tail_remove.erase();
-      snake[0].direction = snake[1].direction;
-      snake[0].setTail();
-    }    
-
-  } else {
-    document.getElementById("snake-field").classList.add("show-alert");
-    finishGame();
-  }  
+  clearInterval(barrier_timer);  
+  document.getElementById("btn-start-stop").classList.toggle('btn-stop');
 }
 
 function isSnakeXY(_x, _y) {

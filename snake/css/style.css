@@ -1,45 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans');
+
 * {
     margin: 0;
     padding: 0;
 }
 
-.container {
-    height: 100vh;
-    margin: 0 auto;
-    width: 300px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    font-family: roboto;
+body{
+        background-color: #fafafa;
 }
 
-.container>* {
-    margin-bottom: 10px;
+.container {
+    font-family: 'Droid Sans', sans-serif;
+     /* for change in mediaquery */
+    font-size: 0.6em;
+    height: 100vh;
+    margin: 0 auto;
+     /* for change in mediaquery */
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* for change in mediaquery */
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.wrapper{
+    width:100%;
 }
 
 .score {
     color: green;
     font-size: 1.8em;
     font-weight: bold;
+    text-align: center;
 }
 
 #snake-field {
+    margin-bottom: 10px;
     background: #fff;
     border: 2px solid green;
     /*for height == width*/
     position: relative; 
     /*set width for responseive game field*/
-    width: 100%; 
+    width: 100%;     
 }
 
 /*pseudo - for height == width;*/
@@ -47,86 +52,6 @@
     content: "";
     display: block;
     padding-top: 100%;
-}
-
-.control-btns {
-    width: 50%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-}
-
-.btn {
-    background: green;
-    color: white;
-    font-size: 1.8em;
-    line-height: 1.5em;
-    text-align: center;
-    cursor: pointer;
-    height: 50px;
-}
-
-.btn:active{
-    background-color: darkgreen;
-}
-
-.control-btn {
-    width: 50px;   
-    border-radius: 50%;    
-    position: relative;
-}
-
-.control-btn::before {
-    content: "";
-    position: absolute;    
-    border: 15px solid transparent;
-}
-
-#btn-up::before{
-    bottom: 40%;
-    left: 20%;
-    border-bottom: 15px  solid #fff;
-}
-
-#btn-down::before{
-    top: 40%;
-    left: 20%;
-    border-top: 15px  solid #fff;
-}
-
-#btn-left::before{
-    right: 40%;
-    top: 20%;
-    border-right: 15px  solid #fff;
-}
-
-#btn-right::before{
-    left: 40%;
-    top: 20%;
-    border-left: 15px  solid #fff;
-}
-
-.control-btn-lrwrapper {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-}
-
-#btn-start-stop {
-    width: 100%;
-    margin-top: 10px;
-    font-weight: bold;
 }
 
 .game-field {
@@ -137,19 +62,12 @@
     bottom: 0;
     right: 0; 
     /*field row settings*/
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+     display: flex;
+     flex-direction: column;
 }
 
 .game-field-row {
     height: 5%;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
 }
 
@@ -183,23 +101,19 @@
 /* direction-up как таковой не нужен но для читаемости
 и последующей совместимости оставлен*/
 .snake-unit-direction-up{
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
 }
 
 .snake-unit-direction-right{
-    -webkit-transform: rotate(90deg);
-            transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 
 .snake-unit-direction-left{
-    -webkit-transform: rotate(-90deg);
-            transform: rotate(-90deg);
+    transform: rotate(-90deg);
 }
 
 .snake-unit-direction-down{
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 
 .snake-unit-turn-right::after{
@@ -241,10 +155,160 @@
 .show-alert::after {
     content: "GAME OVER";
     position: absolute;
-    top: 30%;
-    left: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 3em;
     color: green;
     font-weight: bold;
     z-index: 10;
+    text-align: center;
+    width: 80%;
+}
+
+/* BUTTONS */
+
+.control-btns {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  outline: 1px dotted black;
+}
+
+.btn-row {
+  display: flex;
+}
+
+.btn-cell{
+ // outline: 1px dotted black;
+  width: 20%;
+}
+
+.btn {
+    background: green;
+    color: white;
+    cursor: pointer;
+    position: relative;    
+}
+
+.btn:active {
+    background-color: darkgreen;
+}
+
+.btn::after {
+    /*for btn height == btn width*/
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.control-btn {    
+    border-radius: 50%;    
+    overflow: hidden;
+}
+
+.control-btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateY(-10px);        
+    border: 15px solid transparent;
+    border-bottom: 15px solid #fff;
+}
+   
+#btn-down{
+    transform: rotate(180deg);
+}
+
+#btn-left{
+    transform: rotate(-90deg);
+}
+
+#btn-right{
+    transform: rotate(90deg);
+}
+
+#btn-start-stop {
+    font-weight: bold;
+    border-radius: 30%; 
+    transform: scale(1.5, 1.5) translateY(-20%);  
+}
+
+.btn-start::before {
+    content: "Start";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
+}
+
+.btn-stop::before {
+    content: "Stop";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);   
+}
+
+/***********************MOBILE FIRST**********************/
+// @media only screen (max-width: 419px) and (min-aspect-ratio: 200/282){
+//     .container {
+//         display: none;
+//     }
+// }
+
+/***********************width 320 - 359**********************/
+@media screen and (min-width: 320px) and (max-width: 359px) and (min-aspect-ratio: 200/319){
+    .container {
+        font-size: 0.8em;
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 359px) and (min-aspect-ratio: 200/356) and (max-aspect-ratio: 200/319){
+    .container {
+        font-size: 0.8em;
+        width: 90%
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 359px) and (max-aspect-ratio: 200/356){
+    .container {
+        font-size: 0.8em;
+        width: 95%;      
+    }
+}
+/***********************width 360 - 420**********************/
+@media screen and (min-width: 360px) and (max-width: 420px) and (min-aspect-ratio: 200/319){
+    .container {
+        font-size: 1em;
+    }
+}
+@media screen and (min-width: 360px) and (max-width: 420px) and (min-aspect-ratio: 200/356) and (max-aspect-ratio: 200/319){
+    .container {
+        font-size: 1em;
+        width: 90%
+    }
+}
+@media screen and (min-width: 360px) and (max-width: 420px) and (max-aspect-ratio: 200/356){
+    .container {
+        font-size: 1em;
+        width: 95%;      
+    }
+}
+/***********************width > 420 height <= 603*************/
+@media screen and (min-width: 421px) and (max-height: 603px){
+    .container {
+        font-size: 1em;
+        width: 340px;
+        justify-content: center;      
+    }
+}d
+/***********************width > 420 height > 603*************/
+@media screen and (min-width: 421px) and (min-height: 604px){
+    .container {
+        font-size: 1em;
+        width: 340px;
+        justify-content: center;      
+    }
 }
