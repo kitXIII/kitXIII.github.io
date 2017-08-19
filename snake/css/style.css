@@ -16,14 +16,14 @@ body{
     height: 100vh;
     margin: 0 auto;
      /* for change in mediaquery */
-    width: 80%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
     /* for change in mediaquery */
     justify-content: space-around;
-    //flex-wrap: wrap;
-    //align-content: center;
+   /*  flex-wrap: wrap;
+    align-content: center; */
 }
 
 .wrapper{
@@ -172,7 +172,7 @@ body{
   display: flex;
   flex-direction: column;
   width: 80%;
-//  outline: 1px dotted black;
+  /* outline: 1px dotted black; */
 }
 
 .btn-row {
@@ -180,7 +180,7 @@ body{
 }
 
 .btn-cell{
- // outline: 1px dotted black;
+ /* outline: 1px dotted black; */
   width: 20%;
 }
 
@@ -252,48 +252,50 @@ body{
 }
 
 /***********************MOBILE FIRST**********************/
-// @media only screen (max-width: 419px) and (min-aspect-ratio: 200/282){
-//     .container {
-//         display: none;
-//     }
-// }
-
+/* @media only screen (max-width: 419px) and (min-aspect-ratio: 200/282){
+     .container {
+         display: none;
+     }
+ }
+ */
 /***********************width 320 - 359**********************/
 @media screen and (min-width: 320px) and (max-width: 359px) and (min-aspect-ratio: 200/319){
     .container {
         font-size: 0.8em;
-        width: 80%;
+        width: 256px;
     }
 }
 
 @media screen and (min-width: 320px) and (max-width: 359px) and (min-aspect-ratio: 200/356) and (max-aspect-ratio: 200/319){
     .container {
         font-size: 0.8em;
-        width: 90%
+        /* width: 90%; */
+        width: 256px;
     }
 }
 @media screen and (min-width: 320px) and (max-width: 359px) and (max-aspect-ratio: 200/356){
     .container {
         font-size: 0.8em;
-        width: 95%;      
+        width: 300px;      
     }
 }
 /***********************width 360 - 420**********************/
 @media screen and (min-width: 360px) and (max-width: 420px) and (min-aspect-ratio: 200/319){
     .container {
         font-size: 1em;
+        
     }
 }
 @media screen and (min-width: 360px) and (max-width: 420px) and (min-aspect-ratio: 200/356) and (max-aspect-ratio: 200/319){
     .container {
         font-size: 1em;
-        width: 90%
+        width: 320px;
     }
 }
 @media screen and (min-width: 360px) and (max-width: 420px) and (max-aspect-ratio: 200/356){
     .container {
         font-size: 1em;
-        width: 95%;      
+        width: 320px;   
     }
 }
 /***********************width > 420 height <= 603*************/
