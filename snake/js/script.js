@@ -28,100 +28,106 @@ var food = {
   y: -1,
 };
 
-// базовый конструктор абстрактного модуля 
+/********************************* базовый конструктор абстрактного модуля ********************************************/
+
 const makeUnit = function(coordX, coordY) {
     this.x = coordX;
     this.y = coordY;
     this.classes = [];
     this.unit = document.getElementsByClassName("cell-" + this.x + "-" + this.y)[0];
-    
-    this.draw = function() {
-      for (var item in this.classes){
+}
+// вынесли методы в прототип чтобы они не генерировались в каждом созданном объекте
+makeUnit.prototype.draw = function() {
+   for (var item in this.classes){
         this.unit.classList.add(this.classes[item]);
-      }       
-    }
-     
-     this.erase = function() {
-      for (var item in this.classes){
-        this.unit.classList.remove(this.classes[item]);
-      }
-    }
-
-    this.isIt = function(coordX, coordY) {
-      if (this.x === coordX && this.y === coordY) return true;
-      return false;
     }
 }
 
-// конструктор модуля змейки
+makeUnit.prototype.erase = function() {
+   for (var item in this.classes){
+        this.unit.classList.remove(this.classes[item]);
+    }
+}
+
+makeUnit.prototype.isIt = function(coordX, coordY) {
+  if (this.x === coordX && this.y === coordY) return true;
+      return false;
+}
+
+/***************************************** конструктор модуля змейки**************************************************/
+
 const makeSnakeUnit = function(coordX, coordY, setDirection) {
     makeUnit.call(this, coordX, coordY); // вызов родительского конструктора для данного объекта с прараметрами
     this.direction = setDirection;
     this.classes[0] = 'snake-unit';
-    
-    this.setNDrawHead = function() {
-      this.classes.push('snake-unit-head');
-      this.classes.push('snake-unit-direction-' + this.direction);
-      this.draw();
-    }
-
-    this.unSetHead = function() {
-      for (var i = this.classes.length - 1; i >= 0; i-- ) {
-        if ((this.classes[i] == 'snake-unit-head') || (~this.classes[i].indexOf('snake-unit-direction'))) {
-          this.unit.classList.remove(this.classes[i]);
-          this.classes.splice(i, 1);
-        }        
-      }     
-    }
-
-    this.setNDrawTail = function() {
-      this.unSetRounding();
-      this.classes.push('snake-unit-tail');
-      this.classes.push('snake-unit-direction-' + this.direction);
-      this.draw();
-    }
-
-    this.setNDrawRounding = function(nextUnitDirection) {
-      if (this.direction != nextUnitDirection){
-        if ((this.direction == 'up' && nextUnitDirection == 'left') ||
-            (this.direction == 'right' && nextUnitDirection == 'up') ||
-            (this.direction == 'down' && nextUnitDirection == 'right') ||
-            (this.direction == 'left' && nextUnitDirection == 'down')) {
-              this.classes.push('snake-unit-turn-left');
-        } else if (
-            (this.direction == 'up' && nextUnitDirection == 'right') ||
-            (this.direction == 'right' && nextUnitDirection == 'down') ||
-            (this.direction == 'down' && nextUnitDirection == 'left') ||
-            (this.direction == 'left' && nextUnitDirection == 'up')) {
-              this.classes.push('snake-unit-turn-right');
-        }
-        this.classes.push('snake-unit-direction-' + this.direction);
-        this.draw();
-      }
-    }
-
-    this.unSetRounding = function() {
-      for (var i = this.classes.length - 1; i >= 0; i-- ) {
-        if ((~this.classes[i].indexOf('snake-unit-turn')) || (~this.classes[i].indexOf('snake-unit-direction'))) {
-          this.unit.classList.remove(this.classes[i]);
-          this.classes.splice(i, 1);
-        }        
-      }
-    }
 }
+
 // задаем наследование,
 makeSnakeUnit.prototype = Object.create(makeUnit.prototype); // теперь объект-прототип = объекту абстрактного модуля
 makeSnakeUnit.prototype.constructor = makeSnakeUnit; //иначе это свойство будет ссылаться на makeUnit
 
-// конструктор модуля еды
+makeSnakeUnit.prototype.setNDrawHead = function() {
+  this.classes.push('snake-unit-head');
+  this.classes.push('snake-unit-direction-' + this.direction);
+  this.draw();
+}
+
+makeSnakeUnit.prototype.unSetHead = function() {
+  for (var i = this.classes.length - 1; i >= 0; i-- ) {
+    if ((this.classes[i] == 'snake-unit-head') || (~this.classes[i].indexOf('snake-unit-direction'))) {
+      this.unit.classList.remove(this.classes[i]);
+      this.classes.splice(i, 1);
+    }        
+  }     
+}
+
+makeSnakeUnit.prototype.setNDrawTail = function() {
+  this.unSetRounding();
+  this.classes.push('snake-unit-tail');
+  this.classes.push('snake-unit-direction-' + this.direction);
+  this.draw();
+}
+
+makeSnakeUnit.prototype.setNDrawRounding = function(nextUnitDirection) {
+  if (this.direction != nextUnitDirection){
+    if ((this.direction == 'up' && nextUnitDirection == 'left') ||
+        (this.direction == 'right' && nextUnitDirection == 'up') ||
+        (this.direction == 'down' && nextUnitDirection == 'right') ||
+        (this.direction == 'left' && nextUnitDirection == 'down')) {
+          this.classes.push('snake-unit-turn-left');
+    } else if (
+        (this.direction == 'up' && nextUnitDirection == 'right') ||
+        (this.direction == 'right' && nextUnitDirection == 'down') ||
+        (this.direction == 'down' && nextUnitDirection == 'left') ||
+        (this.direction == 'left' && nextUnitDirection == 'up')) {
+          this.classes.push('snake-unit-turn-right');
+    }
+    this.classes.push('snake-unit-direction-' + this.direction);
+    this.draw();
+  }
+}
+
+makeSnakeUnit.prototype.unSetRounding = function() {
+  for (var i = this.classes.length - 1; i >= 0; i-- ) {
+    if ((~this.classes[i].indexOf('snake-unit-turn')) || (~this.classes[i].indexOf('snake-unit-direction'))) {
+      this.unit.classList.remove(this.classes[i]);
+      this.classes.splice(i, 1);
+    }        
+  }
+}
+
+/***************************************** конструктор модуля еды ****************************************************/
+
 const makeFoodUnit = function(coordX, coordY) {
   makeUnit.call(this, coordX, coordY);
   this.classes[0] = 'food-unit';  
 }
+
 makeFoodUnit.prototype = Object.create(makeUnit.prototype);
 makeFoodUnit.prototype.constructor = makeFoodUnit;
 
-// конструктор модуля препятствий
+/***************************************** конструктор модуля препятствий ********************************************/
+
 const makeBarrierUnit = function(coordX, coordY) {
   makeUnit.call(this, coordX, coordY);
   this.classes[0] = 'barrier-unit'; 
@@ -129,7 +135,7 @@ const makeBarrierUnit = function(coordX, coordY) {
 makeBarrierUnit.prototype = Object.create(makeUnit.prototype);
 makeBarrierUnit.prototype.constructor = makeBarrierUnit;
 
-// конструктор собственно змейки
+/***************************************** конструктор собственно змейки *********************************************/
 const makeSnake = function() {
   this.direction = 'up';
   this.x = Math.floor(FIELD_SIZE_X / 2);
@@ -140,68 +146,84 @@ const makeSnake = function() {
   snake_tail.setNDrawTail();
   this.push(snake_tail);
   this.push(snake_head);
-  
-  // Метод move() задан через = () =>
-  // чтобы всегда вызываться в контексте объекта змейки 
-  this.move = () =>{
-    var fixDirection = this.direction;
-    switch (fixDirection) {
-      case 'up':
-        this.x--;
-        if (this.x < 0) {
-          this.x += FIELD_SIZE_X;
-        }
-        break;
-      case 'down':
-        this.x++;
-        if (this.x >= FIELD_SIZE_X) {
-          this.x -= FIELD_SIZE_X;
-        }
-        break;
-      case 'left':
-        this.y--;
-        if (this.y < 0) {
-          this.y += FIELD_SIZE_Y;
-        }
-        break;
-      case 'right':
-        this.y++;
-        if (this.y >= FIELD_SIZE_Y) {
-          this.y -= FIELD_SIZE_Y;
-        }
-    }
+}
 
-    if (!this.isIt(this.x, this.y) && !isBarrierXY(this.x, this.y)) {
-      var new_unit = new makeSnakeUnit(this.x, this.y, fixDirection);
-      new_unit.setNDrawHead();
-      this[this.length - 1].unSetHead();
-      this[this.length - 1].setNDrawRounding(new_unit.direction);
-      this.push(new_unit); 
-    
-      if (!ateFood(new_unit)) {
-        var tail_remove = this.splice(0, 1)[0];
-        tail_remove.erase();
-        this[0].direction = this[1].direction;
-        this[0].setNDrawTail();
-      }    
+//Наследуем от массива
+makeSnake.prototype = Object.create(Array.prototype);
+makeSnake.prototype.constructor = makeSnake;
 
-    } else { 
-    document.getElementById("snake-field").classList.add("show-alert"); 
-      finishGame();
-    }  
+makeSnake.prototype.isIt = function(coordX, coordY) {
+  for (var i = this.length - 1; i >= 0; i--) {
+    if (this[i].isIt(coordX, coordY)) return true;
   }
-  // Конец метода move
-
-  this.isIt = function(coordX, coordY) {
-    for (var i = this.length - 1; i >= 0; i--) {
-      if (this[i].isIt(coordX, coordY)) return true;
-    }
     return false;
   }
 
-}
-makeSnake.prototype = Object.create(Array.prototype);
-makeSnake.prototype.constructor = makeSnake;
+makeSnake.prototype.move = function() {
+  var fixDirection = this.direction;
+  switch (fixDirection) {
+    case 'up':
+      this.x--;
+      if (this.x < 0) {
+        this.x += FIELD_SIZE_X;
+      }
+      break;
+    case 'down':
+      this.x++;
+      if (this.x >= FIELD_SIZE_X) {
+        this.x -= FIELD_SIZE_X;
+      }
+      break;
+    case 'left':
+      this.y--;
+      if (this.y < 0) {
+        this.y += FIELD_SIZE_Y;
+      }
+      break;
+    case 'right':
+      this.y++;
+      if (this.y >= FIELD_SIZE_Y) {
+        this.y -= FIELD_SIZE_Y;
+      }
+  }
+
+  if (!this.isIt(this.x, this.y) && !isBarrierXY(this.x, this.y)) {
+    var new_unit = new makeSnakeUnit(this.x, this.y, fixDirection);
+    new_unit.setNDrawHead();
+    this[this.length - 1].unSetHead();
+    this[this.length - 1].setNDrawRounding(new_unit.direction);
+     this.push(new_unit); 
+    
+    if (!ateFood(new_unit)) {
+      var tail_remove = this.splice(0, 1)[0];
+      tail_remove.erase();
+      this[0].direction = this[1].direction;
+      this[0].setNDrawTail();
+    }    
+
+  } else { 
+  document.getElementById("snake-field").classList.add("show-alert"); 
+    finishGame();
+  }  
+} 
+
+/***************************************** конструктор набора барьеров *********************************************/
+// const makeBarrier = function() {
+  
+// }
+
+// //Наследуем от массива
+// makeBarrier.prototype = Object.create(Array.prototype);
+// makeBarrier.prototype.constructor = makeBarrier;
+
+// makeSnake.prototype.isIt = function(coordX, coordY) {
+//   for (var i = this.length - 1; i >= 0; i--) {
+//     if (this[i].isIt(coordX, coordY)) return true;
+//   }
+//     return false;
+// }
+
+/***************************************** Функции самой игры *********************************************/
 
 function prepareGameField() {
   var gameField = document.createElement("div");
@@ -231,7 +253,8 @@ function startGame() {
     document.getElementById("score-indic").innerHTML = score; // score = 0
     document.getElementById("btn-start-stop").classList.toggle('btn-stop');
     gameStarted = true;
-    snake_timer = setInterval(snake.move, SNAKE_SPEED);
+    //snake.move.bind(snake) - если без bind будет вызываться в глобальном контексте
+    snake_timer = setInterval(snake.move.bind(snake), SNAKE_SPEED);
     barrier_timer = setInterval(createBarrier, 3000);
     setTimeout(createFood, 5000);
 
@@ -318,7 +341,6 @@ function createFood() {
       foodCreated = true;
     }
   }
-
 }
 
 function ateFood(unit) {
