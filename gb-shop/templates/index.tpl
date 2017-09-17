@@ -1,0 +1,4 @@
+<h1>Главная страница сайта</h1>
+<p>{{GREETINGS}}</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum corrupti, praesentium. Fugit, est, praesentium. Harum, accusantium. Eligendi sint dolor vero fuga quod animi commodi, eum itaque hic dolorum rerum! Qui sequi dolore voluptatum in recusandae dolorum obcaecati quas accusantium eius porro laborum corporis, aliquid aspernatur provident ipsum consectetur dolores fugiat autem repellat pariatur esse. Ea libero numquam, officiis ipsum consectetur. Repellat sunt ab odit laboriosam, cupiditate ipsam doloremque amet sapiente maxime in quibusdam modi vero facilis odio, magni doloribus quisquam.</p>

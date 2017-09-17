@@ -1,0 +1,1 @@
+<li>{{GOOD_NAME}} : {{GOOD_PRICE}} | <button class='remove' id='basket_{{ID_BASKET}}'>Удалить</button></li>
