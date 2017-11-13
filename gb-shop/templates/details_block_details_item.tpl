@@ -1,1 +1,0 @@
-<li><span>{{NAME}}</span> : <span>{{PRICE}}</span></li>
