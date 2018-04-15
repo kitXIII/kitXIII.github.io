@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang='ru'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>My test app</title>
+  <link rel='stylesheet' href='css/main.css'>
+</head>
+
+<body>
+
+  <!-- Block hides main content onload-->
+  <div class='loading'></div>
+
+  <!-- Top nav panel -->
+  <nav class='nav fixed-top'>
+    <div class='container-fluid'>
+      <div class='row'>
+        <div class='col-md-3 top-left-menu d-flex align-items-center'>
+          <div class='navbar-header'>
+            <a href='index.html' class='navbar-brand'>
+              <h1>dashboard</h1>
+            </a>
+          </div>
+          <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#nav-menu" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href='#' id="search-icon" data-toggle="tooltip" data-placement="bottom" data-delay="500" title="Display search bar" class='header-buttons ml-auto d-md-none'>
+            <span class='fas fa-search' aria-hidden="true"></span>
+          </a>
+          <a href='#' id="refresh-data" data-toggle="tooltip" data-placement="bottom" data-delay="500" title="Refresh data" class='header-buttons ml-auto'>
+            <span class='fas fa-sync' aria-hidden="true"></span>
+          </a>
+        </div>
+        <form id="search" role="search" class='col-md-3'>
+          <div class='input-grop d-flex align-items-center'>
+            <span class='fas fa-search'></span>
+            <input type='text' class='form-control transition' placeholder="Search...">
+          </div>
+        </form>
+        <div id='nav-menu' class='col-md-6 navbar-collapse collapse d-md-flex'>
+          <ul class='nav navbar-nav '>
+            <li>
+              <div id='btn-notifications' class='btn-group'>
+                <span class='badge badge-danger'>3</span>
+                <button type='button' class='btn btn-link dropdown-toggle' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Notifications
+                </button>
+                <div id='notification-list' class='dropdown-menu dropdown-menu-right'>
+                  <a href='#' class='dropdown-item'>
+                    <sapn class='badge badge-danger'></sapn>
+                    <img src='img/laika.jpg' alt='' class='rounded-circle'>
+                    <div class='notification-message'>
+                      <strong>Laika</strong>
+                      <p>Hey! How are you?</p>
+                      <em class='since'>2h ago</em>
+                    </div>
+                  </a>
+                  <a href='#' class='dropdown-item'>
+                    <sapn class='badge badge-danger'></sapn>
+                    <img src='img/cat.jpg' alt='' class='rounded-circle'>
+                    <div class='notification-message'>
+                      <strong>Devil cat</strong>
+                      <p>Lorem ipsum dolor sit amet consectetur.</p>
+                      <em class='since'>6h ago</em>
+                    </div>
+                  </a>
+                  <a href='#' class='dropdown-item'>
+                    <sapn class='badge badge-danger'></sapn>
+                    <img src='img/doge.jpg' alt='' class='rounded-circle'>
+                    <div class='notification-message'>
+                      <strong>Doge</strong>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                      <em class='since'>2h ago</em>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href='#' class='d-md-none'>Overview</a>
+            </li>
+            <li>
+              <a href='audience.html' class='d-md-none'>Audience</a>
+            </li>
+            <li>
+              <a href='#' class='d-md-none'>Finance</a>
+            </li>
+            <li>
+              <a href='#' class='d-md-none'>Real time</a>
+            </li>
+            <li>
+              <a href='#' class='d-md-none'>Projects</a>
+            </li>
+            <li class="divider d-md-none"></li>
+            <li>
+              <a href='#' class='d-md-none'>Profile</a>
+            </li>
+            <li>
+              <a href='#' class='d-md-none'>Settings</a>
+            </li>
+            <li>
+              <a href='#' class='d-md-none'>Logout</a>
+            </li>
+          </ul>
+          <div id='nav-profile' class='btn-group d-none d-md-block'>
+            <button type="button" class="btn btn-link dropdown-toggle thumbnail" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src='img/jon.png' alt='' class='rounded-circle'>
+            </button>
+            <div class='dropdown-menu'>
+              <a href='#' class='dropdown-item'>Profile</a>
+              <a href='#' class='dropdown-item'>Settings</a>
+              <div class="dropdown-divider"></div>
+              <a href='#' class='dropdown-item'>Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+
+  <div class='container-fluid'>
+    <div class='row'>
+      <!-- Main content: left side menu -->
+      <div id='side-menu' class='d-none d-md-block col-md-3'>
+        <div class='profile-block'>
+          <img src='img/jon.png' alt='' class='rounded-circle'>
+          <h4 class='profile-title'>
+            Jonny Doo
+            <small>@jonnydoo</small>
+          </h4>
+        </div>
+        <ul class='nav nav-pills d-flex flex-column align-items-stretch'>
+          <li class='nav-item'>
+            <a href='#' class='transition'>
+              <span class="fas fa-home"></span>Overview</a>
+          </li>
+          <li class='nav-item'>
+            <a href='audience.html' class='transition'>
+              <span class="fas fa-user"></span>Audience</a>
+          </li>
+          <li class='nav-item'>
+            <a href='#finances-opts' class='transition' role='button' data-toggle="collapse" aria-expanded="false" aria-controls="finances-opts">
+              <span class="fas fa-dollar-sign"></span>Finance
+              <span class="fas fa-angle-left pull-right"></span>
+            </a>
+            <ul id='finances-opts' class='collapse list-unstyled'>
+              <li>
+                <a href='#' class='transition'>Incomes</a>
+              </li>
+              <li>
+                <a href='#' class='transition'>Outcomes</a>
+              </li>
+            </ul>
+          </li>
+          <li class='nav-item'>
+            <a href='#' class='transition'>
+              <span class="far fa-clock"></span>Real time
+              <span class="badge badge-info pull-right">12</span>
+            </a>
+          </li>
+          <li>
+            <hr>
+          </li>
+          <li class='nav-item'>
+            <a href='#project-opts' class='transition' role="button" data-toggle="collapse" aria-expanded="false" aria-controls="projects-opts">
+              <span class="fas fa-briefcase"></span>Projects
+              <span class="fas fa-angle-left pull-right"></span>
+            </a>
+            <ul id='project-opts' class='collapse list-unstyled'>
+              <li>
+                <a href='#' class='transition'>Free ration nation</a>
+              </li>
+              <li>
+                <a href='#' class='transition'>Cats going crazy</a>
+              </li>
+            </ul>
+
+          </li>
+        </ul>
+      </div>
+
+      <!-- Main content: MAIN -->
+      <!-- Carousel // bs work with data-ride='carousel' -->
+      <div id='main' class='col-md-9 offset-md-3 d-flex flex-column'>
+        <div id='carousel-notification' class='carousel slide m-auto' data-ride='carousel'>
+          <div class='carousel-inner' role='listbox'>
+            <ol class='carousel-indicators'>
+              <li data-target='#carousel-notification' data-slide-to='0' class='active'></li>
+              <li data-target='#carousel-notification' data-slide-to='1'></li>
+              <li data-target='#carousel-notification' data-slide-to='2'></li>
+            </ol>
+
+            <div class='carousel-item active'>
+              <img src='img/doge.jpg' width='512'>
+              <div class='carousel-caption'>
+                <h3>Doge said:</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, architecto.</p>
+              </div>
+            </div>
+
+            <div class='carousel-item'>
+              <img src='img/cat.jpg' width='512'>
+              <div class='carousel-caption'>
+                <h3>Cat said:</h3>
+                <p>Ssit, amet consectetur adipisicing.</p>
+              </div>
+            </div>
+
+            <div class='carousel-item'>
+              <img src='img/laika.jpg' width='512'>
+              <div class='carousel-caption'>
+                <h3>Laika said</h3>
+                <p>Dolor sit amet elit. Culparem ipsum dolor sit..</p>
+              </div>
+            </div>
+
+            <a class="carousel-control-prev" href="#carousel-notification" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel-notification" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class='card'>
+          <div class='card-block'>
+            <div class='row'>
+              <div id='content-spy' class='col-sm-3'>
+                <ul class='nav nav-pills flex-column'>
+                  <li role='presentation' class='nav-item'>
+                    <a href='#lorem' class='nav-link active'>The Lorem</a>
+                  </li>
+                  <li role='presentation' class='nav-item'>
+                    <a href='#eros' class='nav-link'>The Eros</a>
+                  </li>
+                  <li role='presentation' class='nav-item'>
+                    <a href='#vestibulum' class='nav-link'>The Vestibulum</a>
+                  </li>
+                </ul>
+              </div>
+              <div id='content' class='col-sm-9'>
+                <div id='lorem'>
+                  <h2>The Lorem</h2>
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum debitis voluptate quidem fugit molestias qui vel natus dolores, repellendus aut accusamus quae illum, minima mollitia distinctio esse maiores nobis ipsa porro. Enim praesentium laudantium voluptatum beatae porro eligendi, quo natus incidunt, cupiditate quibusdam debitis, dolorem deleniti. Quis earum natus aperiam non quos est vel voluptatem. Sint quas tempora, facere, consectetur distinctio possimus autem consequuntur soluta ea impedit quis a quod accusantium! Dolorum sint placeat est provident nostrum fugiat consectetur eius, harum illo corporis at iste ex asperiores! Cumque, temporibus necessitatibus?</p>
+                </div>
+                <div id='eros'>
+                  <h2>The Eros</h2>
+                  <p>Iitaque rem iure in sunt dolore qui earum, libero inventore mollitia beatae laboriosam? Enim libero harum optio ipsa non modi nobis totam officia reprehenderit sit aliquid, hic mollitia aperiam qui repudiandae, dolores error odio quaerat? Molestiae illum quo pariatur placeat sapiente, culpa voluptatem voluptatibus provident sunt veritatis laborum maxime enim ipsa facere, alias eius earum quos obcaecati quasi vitae esse eum iste! Dolor suscipit cupiditate atque, facere eius aliquam in fugiat harum dolorem quidem unde illo quam consectetur maiores consequatur, at nisi? Totam quisquam illum earum molestiae! Vitae sequi repellendus sed.</p>
+                </div>
+                <div id='vestibulum'>
+                  <h2>The Vestibulum</h2>
+                  <p>Esse, unde! Reprehenderit, dolorem consequatur. Consequatur, nostrum iure, facilis doloribus, nihil voluptatibus porro fugiat quo quibusdam itaque est atque nesciunt vero explicabo. Repellendus consequatur vel nesciunt, eos natus tempora numquam molestiae aspernatur minima deserunt molestias fuga illum porro, omnis quo voluptas. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita totam consectetur esse libero voluptatem, aut ea cupiditate fuga soluta temporibus!  
+                  <img src='img/jon.png' alt='' class='img-fluid d-block'>                  
+                  </p>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

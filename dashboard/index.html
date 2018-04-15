@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang='ru'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>My test app</title>
+  <link rel='stylesheet' href='css/main.css'>
+</head>
+
+<body>
+
+  <!-- Block hides main content onload-->
+  <div class='loading'></div>
+
+  <!-- Top nav panel -->
+  <nav class='nav fixed-top'>
+    <div class='container-fluid'>
+      <div class='row'>
+        <div class='col-md-3 top-left-menu d-flex align-items-center'>
+          <div class='navbar-header'>
+            <a href='index.html' class='navbar-brand'>
+              <h1>dashboard</h1>
+            </a>
+          </div>
+          <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#nav-menu" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href='#' id="search-icon" data-toggle="tooltip" data-placement="bottom" data-delay="500" title="Display search bar" class='header-buttons ml-auto d-md-none'>
+            <span class='fas fa-search' aria-hidden="true"></span>
+          </a>
+          <a href='#' id="refresh-data" data-toggle="tooltip" data-placement="bottom" data-delay="500" title="Refresh data" class='header-buttons ml-auto'>
+            <span class='fas fa-sync' aria-hidden="true"></span>
+          </a>
+        </div>
+        <form id="search" role="search" class='col-md-3'>
+          <div class='input-grop d-flex align-items-center'>
+            <span class='fas fa-search'></span>
+            <input type='text' class='form-control transition' placeholder="Search...">
+          </div>
+        </form>
+        <div id='nav-menu' class='col-md-6 navbar-collapse collapse d-md-flex'>
+          <ul class='nav navbar-nav '>
+            <li>
+              <div id='btn-notifications' class='btn-group'>
+                <span class='badge badge-danger'>3</span>
+                <button type='button' class='btn btn-link dropdown-toggle' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Notifications
+                </button>
+                <div id='notification-list' class='dropdown-menu dropdown-menu-right'>
+                  <a href='#' class='dropdown-item'>
+                    <sapn class='badge badge-danger'></sapn>
+                    <img src='img/laika.jpg' alt='' class='rounded-circle'>
+                    <div class='notification-message'>
+                      <strong>Laika</strong>
+                      <p>Hey! How are you?</p>
+                      <em class='since'>2h ago</em>
+                    </div>
+                  </a>
+                  <a href='#' class='dropdown-item'>
+                    <sapn class='badge badge-danger'></sapn>
+                    <img src='img/cat.jpg' alt='' class='rounded-circle'>
+                    <div class='notification-message'>
+                      <strong>Devil cat</strong>
+                      <p>Lorem ipsum dolor sit amet consectetur.</p>
+                      <em class='since'>6h ago</em>
+                    </div>
+                  </a>
+                  <a href='#' class='dropdown-item'>
+                    <sapn class='badge badge-danger'></sapn>
+                    <img src='img/doge.jpg' alt='' class='rounded-circle'>
+                    <div class='notification-message'>
+                      <strong>Doge</strong>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                      <em class='since'>2h ago</em>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href='#' class='d-md-none'>Overview</a>
+            </li>
+            <li>
+              <a href='audience.html' class='d-md-none'>Audience</a>
+            </li>
+            <li>
+              <a href='#' class='d-md-none'>Finance</a>
+            </li>
+            <li>
+              <a href='#' class='d-md-none'>Real time</a>
+            </li>
+            <li>
+              <a href='#' class='d-md-none'>Projects</a>
+            </li>
+            <li class="divider d-md-none"></li>
+            <li>
+              <a href='#' class='d-md-none'>Profile</a>
+            </li>
+            <li>
+              <a href='#' class='d-md-none'>Settings</a>
+            </li>
+            <li>
+              <a href='#' class='d-md-none'>Logout</a>
+            </li>
+          </ul>
+          <div id='nav-profile' class='btn-group d-none d-md-block'>
+            <button type="button" class="btn btn-link dropdown-toggle thumbnail" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src='img/jon.png' alt='' class='rounded-circle'>
+            </button>
+            <div class='dropdown-menu'>
+              <a href='#' class='dropdown-item'>Profile</a>
+              <a href='#' class='dropdown-item'>Settings</a>
+              <div class="dropdown-divider"></div>
+              <a href='#' class='dropdown-item'>Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+
+  <div class='container-fluid'>
+    <div class='row'>
+      <!-- Main content: left side menu -->
+      <div id='side-menu' class='d-none d-md-block col-md-3'>
+        <div class='profile-block'>
+          <img src='img/jon.png' alt='' class='rounded-circle'>
+          <h4 class='profile-title'>
+            Jonny Doo
+            <small>@jonnydoo</small>
+          </h4>
+        </div>
+        <ul class='nav nav-pills d-flex flex-column align-items-stretch'>
+          <li class='nav-item'>
+            <a href='#' class='transition'>
+              <span class="fas fa-home"></span>Overview</a>
+          </li>
+          <li class='nav-item'>
+            <a href='audience.html' class='transition'>
+              <span class="fas fa-user"></span>Audience</a>
+          </li>
+          <li class='nav-item'>
+            <a href='#finances-opts' class='transition' role='button' data-toggle="collapse" aria-expanded="false" aria-controls="finances-opts">
+              <span class="fas fa-dollar-sign"></span>Finance
+              <span class="fas fa-angle-left pull-right"></span>
+            </a>
+            <ul id='finances-opts' class='collapse list-unstyled'>
+              <li>
+                <a href='#' class='transition'>Incomes</a>
+              </li>
+              <li>
+                <a href='#' class='transition'>Outcomes</a>
+              </li>
+            </ul>
+          </li>
+          <li class='nav-item'>
+            <a href='#' class='transition'>
+              <span class="far fa-clock"></span>Real time
+              <span class="badge badge-info pull-right">12</span>
+            </a>
+          </li>
+          <li>
+            <hr>
+          </li>
+          <li class='nav-item'>
+            <a href='#project-opts' class='transition' role="button" data-toggle="collapse" aria-expanded="false" aria-controls="projects-opts">
+              <span class="fas fa-briefcase"></span>Projects
+              <span class="fas fa-angle-left pull-right"></span>
+            </a>
+            <ul id='project-opts' class='collapse list-unstyled'>
+              <li>
+                <a href='#' class='transition'>Free ration nation</a>
+              </li>
+              <li>
+                <a href='#' class='transition'>Cats going crazy</a>
+              </li>
+            </ul>
+
+          </li>
+        </ul>
+      </div>
+
+      <!-- Main content: MAIN -->
+      <div id='main' class='col-md-9 offset-md-3 d-flex flex-wrap'>
+
+        <div id='pie-charts' class='card'>
+          <div class='card-block'>
+            <h2>Overall analysis</h2>
+            <div class='d-flex flex-column flex-md-row align-items-center justify-content-md-between'>
+              <div class='round-chart mb-3 mb-md-0' data-percent="42">
+                <span>
+                  42
+                  <small>
+                    %
+                    <br> recurring
+                  </small>
+                </span>
+              </div>
+              <div class='round-chart' data-percent="87">
+                <span>
+                  87
+                  <small>
+                    %
+                    <br> aware
+                  </small>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id='quick-info' class='card'>
+          <div class='card-block'>
+            <h2>Quick stats</h2>
+            <div class='quick-stats'>
+              <strong>Today:</strong>
+              <span>78</span>
+            </div>
+            <div class='quick-stats'>
+              <strong>This month:</strong>
+              <span>459</span>
+            </div>
+            <div class='quick-stats'>
+              <strong>All time:</strong>
+              <span>54k</span>
+            </div>
+            <div class='quick-stats'>
+              <strong>Bounce rate:</strong>
+              <span>81.08%</span>
+            </div>
+            <div class='quick-stats'>
+              <strong>Session duration:</strong>
+              <span>01:01:41</span>
+            </div>
+            <div class='quick-stats'>
+              <strong>New session:</strong>
+              <span>63.8%</span>
+            </div>
+          </div>
+        </div>
+
+        <div id='performance-eval' class='card'>
+          <div class='card-block'>
+            <h2>Performance evaluations</h2>
+            <div class='spider-chart'></div>
+          </div>
+        </div>
+
+        <div id='ration-stock' class='card'>
+          <div class='card-block'>
+            <h2>Ration stock info</h2>
+            <div class='stacked-area'></div>
+            <div class='switch'>
+              View main stocks
+              <input type='checkbox' class='switchery' checked>
+            </div>
+            <div class='switch'>
+              Hide empty hooks
+              <input type='checkbox' class='switchery'>
+            </div>
+          </div>
+        </div>
+
+        <div id='real-time' class='card'>
+          <div class='card-block'>
+            <h2>Real-time information</h2>
+            <ul class='list-unstyled'>
+              <li>
+                Active dogs:
+                <span class="badge badge-warning">255</span>
+              </li>
+              <li>
+                Silo status:
+                <span class="badge badge-success">
+                  <span class='fas fa-check'></span>
+                </span>
+              </li>
+              <li>
+                Usage-level:
+                <div class='progress'>
+                  <div class='progress-bar bg-success' role='progressbar' aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
+                    <span class='sr-only'>25%</span>
+                  </div>
+                  <div class='progress-bar bg-warning progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow="38" aria-valuemin="0"
+                    aria-valuemax="100" style="width: 38%">
+                    <span class='sr-only'>38%</span>
+                  </div>
+                  <div class='progress-bar bg-danger' role='progressbar' aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width: 5%">
+                    <span class='sr-only'>5%</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                Free spsce:
+                <span id="free-space">32%</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div id='daily-usage' class='card'>
+          <div class='card-block'>
+            <h2>Daily usage</h2>
+            <div class='area-chart'></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
