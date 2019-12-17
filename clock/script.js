@@ -7,8 +7,10 @@ const SELECTORS = {
 
 const STATES = {
   AUTOMATIC: "automatic",
-  MANIPULATING_RUN: "manipulating run",
-  MANIPULATING_STOP: "manipulating stop"
+  MANIPULATING_MOUSE_RUN: "manipulating mouse run",
+  MANIPULATING_MOUSE_STOP: "manipulating mouse stop",
+  MANIPULATING_TOUCH_RUN: "manipulating touch run",
+  MANIPULATING_TOUCH_STOP: "manipulating touch stop"
 };
 
 function main() {
@@ -31,30 +33,68 @@ const app = {
 
         break;
 
-      case STATES.MANIPULATING_RUN:
+      case STATES.MANIPULATING_MOUSE_RUN:
         if (this.currentState === STATES.AUTOMATIC) {
           this.clock.setGlobalTimePeriodically.stop();
+        }
+
+        if (
+          this.currentState === STATES.MANIPULATING_MOUSE_RUN ||
+          this.currentState === STATES.MANIPULATING_TOUCH_RUN
+        ) {
+          return;
         }
 
         document.addEventListener("mousemove", this.minuteHand.onMouseMove);
         document.onmouseup = () =>
-          this.setCurrentState(STATES.MANIPULATING_STOP);
+          this.setCurrentState(STATES.MANIPULATING_MOUSE_STOP);
 
         this.currentState = state;
         break;
 
-      case STATES.MANIPULATING_STOP:
+      case STATES.MANIPULATING_MOUSE_STOP:
+        if (this.currentState !== STATES.MANIPULATING_MOUSE_RUN) {
+          return;
+        }
+
+        document.removeEventListener("mousemove", this.minuteHand.onMouseMove);
+        document.onmouseup = null;
+
+        this.currentState = state;
+        break;
+
+      case STATES.MANIPULATING_TOUCH_RUN:
         if (this.currentState === STATES.AUTOMATIC) {
           this.clock.setGlobalTimePeriodically.stop();
         }
 
-        if (this.currentState === STATES.MANIPULATING_RUN) {
-          document.removeEventListener(
-            "mousemove",
-            this.minuteHand.onMouseMove
-          );
-          document.onmouseup = null;
+        if (
+          this.currentState === STATES.MANIPULATING_MOUSE_RUN ||
+          this.currentState === STATES.MANIPULATING_TOUCH_RUN
+        ) {
+          return;
         }
+
+        document.addEventListener("touchmove", this.minuteHand.onTouchMove, false);
+        document.addEventListener("touchend", this.minuteHand.onTouchEnd, false);
+       
+        this.currentState = state;
+        break;
+
+      case STATES.MANIPULATING_TOUCH_STOP:
+        if (this.currentState !== STATES.MANIPULATING_TOUCH_RUN) {
+          return;
+        }
+
+        document.removeEventListener(
+          "touchmove",
+          this.minuteHand.onTouchMove
+        );
+
+        document.removeEventListener(
+          "touchend",
+          this.minuteHand.onTouchEnd
+        );
 
         this.currentState = state;
         break;
@@ -104,6 +144,7 @@ const app = {
     init: function() {
       this.element = document.querySelector(SELECTORS.MINUTE_HAND);
       this.element.ondragstart = () => false;
+      this.element.addEventListener("touchstart", this.onTouchStart, false);
       this.element.onmousedown = this.onMouseDownHandler;
     },
     element: null,
@@ -118,31 +159,54 @@ const app = {
     onMouseDownHandler: function(e) {
       e.preventDefault();
       e.stopPropagation();
-      app.setCurrentState(STATES.MANIPULATING_RUN);
+      app.setCurrentState(STATES.MANIPULATING_MOUSE_RUN);
       const { clientX, clientY } = e;
       app.minuteHand.setCurrentCoords(clientX, clientY);
     },
     onMouseMove: function(e) {
       const { clientX, clientY } = e;
       if (!app.clock.checkIfXYInside(clientX, clientY)) {
-        app.setCurrentState(STATES.MANIPULATING_STOP);
+        app.setCurrentState(STATES.MANIPULATING_MOUSE_STOP);
         return;
       }
 
-      const angle = getAngleInRads(
+      app.minuteHand.movingProcess({ x: clientX, y: clientY });
+    },
+    onTouchStart: function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      app.setCurrentState(STATES.MANIPULATING_TOUCH_RUN);
+      const { clientX, clientY } = e.changedTouches[0];
+      app.minuteHand.setCurrentCoords(clientX, clientY);
+    },
+    onTouchEnd: function(e) {
+      e.preventDefault();
+      app.setCurrentState(STATES.MANIPULATING_TOUCH_STOP);
+    },
+    onTouchMove: function(e) {
+      // e.preventDefault();
+      const { clientX, clientY } = e.changedTouches[0];
+
+      if (!app.clock.checkIfXYInside(clientX, clientY)) {
+        app.setCurrentState(STATES.MANIPULATING_TOUCH_STOP);
+        return;
+      }
+      
+      app.minuteHand.movingProcess({ x: clientX, y: clientY });
+    },
+    movingProcess: function(nextPoint) {
+      const minutes = getDiffInMinutes(
         app.clock.center,
         app.minuteHand.currentCoords,
-        { x: clientX, y: clientY }
+        nextPoint
       );
 
-      const minutes = convertRadsToMinutes(angle);
-      
-      if (!minutes) {
-        return;
-      }
+      const newTime =
+        minutes >= 0
+          ? addMinutesToTime(app.clock.currentTime, minutes)
+          : subtractMinutesFromTime(app.clock.currentTime, Math.abs(minutes));
 
-      const newTime = addMinutesToTime(app.clock.currentTime, minutes);
-      app.minuteHand.setCurrentCoords(clientX, clientY);
+      app.minuteHand.setCurrentCoords(nextPoint.x, nextPoint.y);
       app.clock.setClockTime(newTime.hours, newTime.minutes);
     }
   }
@@ -178,6 +242,19 @@ function getClientRectCenter(rect) {
   return { x, y };
 }
 
+function getDiffInMinutes(center, prev, next) {
+  const angle = getAngleInRads(center, prev, next);
+  const minutes = convertRadsToMinutes(angle);
+
+  if (!minutes) {
+    return 0;
+  }
+
+  const pseudoScalarMulitple = getPseudoScalarMulitple(center, prev, next);
+
+  return pseudoScalarMulitple >= 0 ? minutes : -minutes;
+}
+
 function getAngleInRads(center, prev, next) {
   // equation of line by 2 points: x(y0 - y1) + y(x1 - x0) + (x0y1 - y0x1) = 0
   //
@@ -196,7 +273,7 @@ function getAngleInRads(center, prev, next) {
     (a1 * a2 + b1 * b2) /
     (Math.sqrt(a1 * a1 + b1 * b1) * Math.sqrt(a2 * a2 + b2 * b2));
 
-    return Math.acos(cosAngle);
+  return Math.acos(cosAngle);
 }
 
 function convertRadsToMinutes(radian) {
@@ -223,4 +300,29 @@ function addMinutesToTime(time, minutes) {
   const correctedHours = newHours - 24;
 
   return { hours: correctedHours, minutes: correctedMinutes };
+}
+
+function subtractMinutesFromTime(time, minutes) {
+  const newMinutes = time.minutes - minutes;
+  if (newMinutes >= 0) {
+    return { ...time, minutes: newMinutes };
+  }
+
+  const correctedMinutes = newMinutes + 60;
+  const newHours = time.hours - 1;
+
+  if (newHours >= 0) {
+    return { hours: newHours, minutes: correctedMinutes };
+  }
+
+  const correctedHours = newHours + 24;
+
+  return { hours: correctedHours, minutes: correctedMinutes };
+}
+
+function getPseudoScalarMulitple(center, point1, point2) {
+  const a = { x: point1.x - center.x, y: point1.y - center.y };
+  const b = { x: point2.x - center.x, y: point2.y - center.y };
+
+  return a.x * b.y - a.y * b.x;
 }
