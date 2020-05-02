@@ -21,12 +21,6 @@
 
 [Часы](https://kitxiii.github.io/clock) - показывают текущее время, если потянуть за минутную стрелку можно выставить свое время, часовая стрелка зависит от положения минутной. Могут понадобиться чтобы научить ребенка понимать значения времени на круглом циферблате. Использованы *CSS-variables*, *нативный JS*. [Repo](https://github.com/kitXIII/clock)
 
-<<<<<<< HEAD
 [Rss-читалка](https://rss-kit.surge.sh) - простое приложение для чтения rss, пример реализации mvc. Использованы: *webpack*, *babel*, *bootstrap*, *fontawesome*. [Repo](https://github.com/kitXIII)
 
 [Чат](https://chat-kit.herokuapp.com) - приложение написанное с использованием React/Redux. Основные возможности: каналы (можно добавлять и удалять), чат в каждом канале работает в режиме реального времени. Стек технологий: *React/Redux*, *redux-form*, *webpack*, *webscocket*, *Bootstrap*. [Repo](https://github.com/kitXIII)
-=======
-[Rss-читалка](https://rss-kit.surge.sh) - простое приложение для чтения rss, пример реализации mvc. Использованы: *webpack*, *babel*, *bootstrap*, *fontawesome*. [Repo](https://github.com/kitXIII/project-lvl4-s402)
-
-[Чат](https://chat-kit.herokuapp.com) - приложение написанное с использованием React/Redux. Основные возможности: каналы (можно добавлять и удалять), чат в каждом канале работает в режиме реального времени. Стек технологий: *React/Redux*, *redux-form*, *webpack*, *webscocket*, *Bootstrap*. [Repo](https://github.com/kitXIII/project-lvl3-s403)
->>>>>>> 47418016b0a33f9bd5267db6f723939be636ee0d
